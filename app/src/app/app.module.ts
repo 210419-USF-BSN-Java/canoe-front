@@ -8,6 +8,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { CreateTripPageComponent } from './create-trip-page/create-trip-page.component';
 import { ViewTripPageComponent } from './view-trip-page/view-trip-page.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ViewTripPageComponent } from './view-trip-page/view-trip-page.component
     SignupPageComponent,
     AdminPageComponent,
     CreateTripPageComponent,
-    ViewTripPageComponent
+    ViewTripPageComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
