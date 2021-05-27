@@ -16,6 +16,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component'
 // Prime Imports
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 
@@ -29,6 +30,7 @@ import {InputTextModule} from 'primeng/inputtext';
     ViewTripPageComponent,
     NavComponent,
     SignupFormComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
