@@ -12,7 +12,6 @@ const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'create-trip', component: CreateTripPageComponent},
   {path: 'view-trip', component: ViewTripPageComponent},
-
 ];
 
 @NgModule({
