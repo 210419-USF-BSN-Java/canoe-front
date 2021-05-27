@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,9 +10,13 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { CreateTripPageComponent } from './create-trip-page/create-trip-page.component';
 import { ViewTripPageComponent } from './view-trip-page/view-trip-page.component';
 import { NavComponent } from './nav/nav.component';
+import { SignupFormComponent } from './signup-form/signup-form.component'
+
 
 // Prime Imports
-import {ButtonModule} from 'primeng/button'
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+
 
 
 @NgModule({
@@ -22,12 +27,15 @@ import {ButtonModule} from 'primeng/button'
     AdminPageComponent,
     CreateTripPageComponent,
     ViewTripPageComponent,
-    NavComponent
+    NavComponent,
+    SignupFormComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
