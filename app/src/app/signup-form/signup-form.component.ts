@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-signup-form',
@@ -15,6 +14,13 @@ export class SignupFormComponent implements OnInit {
   password = '';
 
   constructor() { }
+
+ submitForm (){
+    //validate form data
+    // call signup service
+    // signUpService(this.firstName, this.lastName, this.email, this.username, this.password)
+
+  }
 
   ngOnInit(): void {
   }

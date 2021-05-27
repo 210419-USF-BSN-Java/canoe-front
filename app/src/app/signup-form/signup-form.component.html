@@ -3,6 +3,16 @@
     <div class="input-container">
       <span class="p-float-label">
         <input
+          id="email"
+          name="email"
+          type="text"
+          pInputText
+          [(ngModel)]="email"
+        />
+        <label for="float-input">Email</label>
+      </span>
+      <span class="p-float-label">
+        <input
           id="float-input"
           name="firstName"
           type="text"
@@ -21,16 +31,7 @@
         />
         <label for="float-input">Last Name</label>
       </span>
-      <span class="p-float-label">
-        <input
-          id="email"
-          name="email"
-          type="text"
-          pInputText
-          [(ngModel)]="email"
-        />
-        <label for="float-input">Email</label>
-      </span>
+
       <span class="p-float-label">
         <input
           id="username"
@@ -51,7 +52,7 @@
         />
         <label for="float-input">Password</label>
       </span>
-      <p-button label="Submit"></p-button>
+      <p-button label="Submit" (click)="submitForm()"></p-button>
     </div>
   </form>
 </div>
