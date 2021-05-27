@@ -10,6 +10,10 @@ import { CreateTripPageComponent } from './create-trip-page/create-trip-page.com
 import { ViewTripPageComponent } from './view-trip-page/view-trip-page.component';
 import { NavComponent } from './nav/nav.component';
 
+// Prime Imports
+import {ButtonModule} from 'primeng/button'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,8 @@ import { NavComponent } from './nav/nav.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
