@@ -15,7 +15,8 @@ export class SignupFormComponent implements OnInit {
 
   constructor() { }
 
- submitForm (){
+ submitForm(): void {
+   console.log("submit signup")
     //validate form data
     // call signup service
     // signUpService(this.firstName, this.lastName, this.email, this.username, this.password)
