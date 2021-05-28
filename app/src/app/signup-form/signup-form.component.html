@@ -1,63 +1,59 @@
-<div>
-  <form action="">
+<div class="form-container">
+  <form class="form">
     <div class="input-container">
-      <span class="p-float-label">
-        <input
-          id="email"
-          class="p-inputtext-sm"
-          name="email"
-          type="text"
-          pInputText
-          [(ngModel)]="email"
-        />
-        <label for="float-input">Email</label>
-      </span>
-      <span class="p-float-label">
+      <mat-form-field>
+        <mat-label>First name</mat-label>
         <input
           id="float-input"
-          class="p-inputtext-sm"
           name="firstName"
           type="text"
-          pInputText
+          matInput
           [(ngModel)]="firstName"
         />
-        <label for="float-input">First Name</label>
-      </span>
-      <span class="p-float-label">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last name</mat-label>
         <input
           name="lastName"
-          class="p-inputtext-sm"
           id="float-input"
           type="text"
-          pInputText
+          matInput
           [(ngModel)]="lastName"
         />
-        <label for="float-input">Last Name</label>
-      </span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          id="email"
+          name="email"
+          type="text"
+          matInput
+          placeholder
+          [(ngModel)]="email"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Username</mat-label>
 
-      <span class="p-float-label">
         <input
           id="username"
-          class="p-inputtext-sm"
           name="username"
           type="text"
-          pInputText
+          matInput
           [(ngModel)]="username"
         />
-        <label for="float-input">Username</label>
-      </span>
-      <span class="p-float-label">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
         <input
-          id="pwassword"
-          class="p-inputtext-sm"
+          id="password"
           name="password"
-          type="text"
-          pInputText
+          type="password"
+          matInput
           [(ngModel)]="password"
         />
-        <label for="float-input">Password</label>
-      </span>
-      <p-button label="Submit" (click)="submitForm()"></p-button>
+      </mat-form-field>
+      <button mat-raised-button (click)="submitForm()">Submit</button>
     </div>
   </form>
 </div>
