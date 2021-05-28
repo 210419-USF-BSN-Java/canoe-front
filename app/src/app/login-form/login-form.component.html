@@ -1,30 +1,27 @@
-<div>
-  <form action="">
+<div class="form-container">
+  <form class="form-container">
     <div class="input-container">
-      <span class="p-float-label">
-        <input
-          id="username"
-          class="p-inputtext-sm"
-          name="username"
-          type="text"
-          pInputText
-          [(ngModel)]="username"
-        />
-        <label for="float-input">Username</label>
-      </span>
-      <span class="p-float-label">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
         <input
           id="float-input"
-          class="p-inputtext-sm"
-          name="password"
+          name="username"
           type="text"
-          pInputText
+          matInput
+          [(ngModel)]="username"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          name="lastName"
+          id="float-input"
+          type="text"
+          matInput
           [(ngModel)]="password"
         />
-        <label for="float-input">Password</label>
-      </span>
-
-      <p-button label="Submit" (click)="submitForm()"></p-button>
+      </mat-form-field>
+      <button mat-raised-button (click)="submitForm()">Submit</button>
     </div>
   </form>
 </div>

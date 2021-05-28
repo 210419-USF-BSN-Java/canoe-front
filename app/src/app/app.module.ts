@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,10 +14,14 @@ import { NavComponent } from './nav/nav.component';
 import { SignupFormComponent } from './signup-form/signup-form.component'
 
 
-// Prime Imports
-import {ButtonModule} from 'primeng/button';
-import {InputTextModule} from 'primeng/inputtext';
+
 import { LoginFormComponent } from './login-form/login-form.component';
+
+// Angular Material component imports
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 
@@ -36,8 +41,10 @@ import { LoginFormComponent } from './login-form/login-form.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ButtonModule,
-    InputTextModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

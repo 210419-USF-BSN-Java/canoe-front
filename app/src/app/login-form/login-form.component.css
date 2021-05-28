@@ -1,0 +1,8 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+.input-container {
+  display: grid;
+  width: 250px;
+}
