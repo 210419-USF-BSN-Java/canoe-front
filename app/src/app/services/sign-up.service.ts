@@ -14,7 +14,7 @@ export class SignUpService {
   
   constructor(private http: HttpClient) { }
 
-  signup( userFname: string, userLname: string,userEmail: string,userLogin: string, userLoginPassword: string):Observable<boolean>{
+  signup( userFname: string, userLname: string,userEmail: string,userLogin: string, userLoginPassword: string):Observable<string>{
     let signUpFormData = {
       userFname,
       userLname,
@@ -23,7 +23,11 @@ export class SignUpService {
       userLoginPassword
     }
 
-    return this.http.post(`${env.CANOE_BACK_URL}/users/signup`, signUpFormData).pipe(map(res => res as boolean))
+    console.log("***************")
+    console.log("SIGN UP SERVICE")
+    console.log("***************")
+
+    return this.http.post('http://localhost:8085/user/signup', signUpFormData).pipe(map(res => res as string))
     }
 
   }
