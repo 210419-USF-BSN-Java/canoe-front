@@ -1,0 +1,59 @@
+<div class="form-container">
+  <form class="form">
+    <div class="input-container">
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input
+          id="float-input"
+          name="firstName"
+          type="text"
+          matInput
+          [(ngModel)]="firstName"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input
+          name="lastName"
+          id="float-input"
+          type="text"
+          matInput
+          [(ngModel)]="lastName"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          id="email"
+          name="email"
+          type="text"
+          matInput
+          placeholder
+          [(ngModel)]="email"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+
+        <input
+          id="username"
+          name="username"
+          type="text"
+          matInput
+          [(ngModel)]="username"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          matInput
+          [(ngModel)]="password"
+        />
+      </mat-form-field>
+      <button mat-raised-button (click)="submitForm()">Submit</button>
+    </div>
+  </form>
+</div>

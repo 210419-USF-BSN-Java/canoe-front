@@ -1,0 +1,27 @@
+<div class="form-container">
+  <form class="form-container">
+    <div class="input-container">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input
+          id="float-input"
+          name="username"
+          type="text"
+          matInput
+          [(ngModel)]="username"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          name="lastName"
+          id="float-input"
+          type="text"
+          matInput
+          [(ngModel)]="password"
+        />
+      </mat-form-field>
+      <button mat-raised-button (click)="submitForm()">Submit</button>
+    </div>
+  </form>
+</div>
