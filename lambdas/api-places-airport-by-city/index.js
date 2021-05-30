@@ -1,7 +1,7 @@
 const axios = require( 'axios' );
 
 exports.handler = async ( event ) => {
-    let response = { statusCode: 400, body: JSON.stringify( "couldn't find an airport within 50km radius of target" ) };
+    let response = { statusCode: 400, body: JSON.stringify( "couldn't find an airport within 150km radius of target" ) };
 
     // get "place from post" 
     const body = JSON.parse( event.body )
