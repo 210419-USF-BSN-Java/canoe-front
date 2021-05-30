@@ -1,1 +1,28 @@
 <h1 class="page-header">Create Trip</h1>
+
+
+<div>
+    <button (click)="addTrip()" title="smaller">Add Trip</button>
+</div>
+
+<button *ngIf="showElement">
+    <br>
+    <form>
+        <input name="location" type="text" placeholder="City, Country" [(ngModel)]="location" />
+        <input name="submit-location" type="submit" value="Enter" />
+    </form>
+        <br><br><br>
+        <button *ngFor="let element of elements" (click)="addTripElement(element)">{{ element }}
+        </button>
+ 
+
+   
+</button>
+
+
+<p>City: {{city}}</p>
+<p>Country: {{country}}</p>
+<p *ngIf="showFlights">Display Flights</p>
+<p *ngIf="showLodging">Display Lodging</p>
+<p *ngIf="showAttractions">Display Attractions</p>
+<p *ngIf="showFood">Display Local Eateries</p>

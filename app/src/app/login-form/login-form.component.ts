@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {UserService} from '../services/user.service'
 
 @Component({
   selector: 'app-login-form',
@@ -7,16 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  username: string = '';
+  password: string = '';
+  constructor(private uServ: UserService, private router: Router) { }
 
-  username = ''
-  password = ''
 
   submitForm(): void{
+   console.log("log in")
     //validate form data
-    // call login service
-    // loginService(this.username, this.password)
-    console.log('login click')
+    this.uServ.login(this.username, 
+      this.password)
+      .subscribe(
+         data => {
+           console.log(data)
+           this.router.navigate(['/create-trip'])
+         },
+         error => {
+            console.log('Display Error')
+            console.log(error)
+         })
   }
 
   ngOnInit(): void {
