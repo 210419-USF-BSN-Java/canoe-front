@@ -1,0 +1,6 @@
+POST https://03xsaqcsqh.execute-api.us-east-2.amazonaws.com/api-places-airports HTTP/1.1
+content-type: application/json
+
+{
+    "place": "seattle"
+}
