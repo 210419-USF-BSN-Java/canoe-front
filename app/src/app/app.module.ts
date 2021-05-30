@@ -14,10 +14,10 @@ import { NavComponent } from './nav/nav.component';
 import { SignupFormComponent } from './signup-form/signup-form.component'
 
 
-
 import { LoginFormComponent } from './login-form/login-form.component';
 
 // Angular Material component imports
+import {HttpClientModule} from '@angular/common/http'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -44,7 +44,8 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
