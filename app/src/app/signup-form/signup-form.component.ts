@@ -1,43 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {SignUpService} from '../services/sign-up.service'
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-signup-form',
   templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.css']
+  styleUrls: ['./signup-form.component.css'],
 })
 export class SignupFormComponent implements OnInit {
-
   firstName = '';
   lastName = '';
   email = '';
   username = '';
   password = '';
 
-  constructor(private signUpServ: SignUpService, private router: Router) { }
+  constructor(private uServ: UserService, private router: Router) {}
 
- submitForm(): void {
-   console.log("submit signup")
-    //validate form data
-    // call signup service
-    this.signUpServ.signup(this.firstName, 
-      this.lastName, 
-      this.email, 
-      this.username, 
-      this.password)
+  submitForm(): void {
+    console.log('submit signup');
+    //TODO validate form data
+    this.uServ
+      .signup(
+        this.firstName,
+        this.lastName,
+        this.email,
+        this.username,
+        this.password
+      )
       .subscribe(
-         data => {
-           this.router.navigate(['/login'])
-         },
-         error => {
-          
-            console.log('Display Error')
-            console.log(error)
-         })
+        (data) => {
+          this.router.navigate(['/login']);
+        },
+        (error) => {
+          console.log('Sign up error');
+          console.log(error);
+        }
+      );
   }
-
   ngOnInit(): void {
+    // init form validation here
   }
-
 }
