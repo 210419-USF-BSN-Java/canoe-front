@@ -19,17 +19,17 @@ export class CreateTripPageComponent implements OnInit {
   showAttractions = false;
   showLodging = false;
   location:string = '';
-  
+ 
 
   addTrip(){
     this.showElement = !this.showElement;
    }
    element: string = '';
    elements: string[] = ['Add Flight', 'Add Lodging','Add Local Attraction', 'Add Local Eatery' ];
-   splitLocation: string[] = [];
-   
-   city: string = '';
-   country: string = '';
+   splitLocation = location.split([,][1]);
+ 
+   city: string = this.splitLocation[0];
+   country: string = this.splitLocation[1];
   addTripElement(element: string){
     
       switch(element){
