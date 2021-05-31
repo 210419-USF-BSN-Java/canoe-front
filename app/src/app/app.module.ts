@@ -21,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -36,6 +37,7 @@ import {MatButtonModule} from '@angular/material/button';
     NavComponent,
     SignupFormComponent,
     LoginFormComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
