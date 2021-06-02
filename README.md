@@ -46,8 +46,8 @@ All the details of traveling can be difficult to plan and manage. Canoe is an ap
 - JDBC
 
 ## Link
-*[Github Front End](https://github.com/210419-USF-BSN-Java/canoe-front)
-*[Github Back End](https://github.com/210419-USF-BSN-Java/Canoe-Back-End)
+* [Github Front End](https://github.com/210419-USF-BSN-Java/canoe-front)
+* [Github Back End](https://github.com/210419-USF-BSN-Java/Canoe-Back-End)
 
 ## Reference
 
