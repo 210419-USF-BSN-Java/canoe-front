@@ -1,28 +1,19 @@
 <h1 class="page-header">Create Trip</h1>
 
+<div class="main-container">
+  <div class="flex">
+    <div class="side-menu-container">
+      <div class="button-container">
+        <app-add-button
+          *ngFor="let label of labels"
+          [label]="label"
+        ></app-add-button>
+      </div>
+    </div>
+    <div class="main-content">
+      <!-- choose destination form displays by default -->
 
-<div>
-    <button (click)="addTrip()" title="smaller">Add Trip</button>
+      main content
+    </div>
+  </div>
 </div>
-
-<button *ngIf="showElement">
-    <br>
-    <form>
-        <input name="location" type="text" placeholder="City, Country" [(ngModel)]="location" />
-        <input name="submit-location" type="submit" value="Enter" />
-    </form>
-        <br><br><br>
-        <button *ngFor="let element of elements" (click)="addTripElement(element)">{{ element }}
-        </button>
- 
-
-   
-</button>
-
-
-<p>City: {{city}}</p>
-<p>Country: {{country}}</p>
-<p *ngIf="showFlights">Display Flights</p>
-<p *ngIf="showLodging">Display Lodging</p>
-<p *ngIf="showAttractions">Display Attractions</p>
-<p *ngIf="showFood">Display Local Eateries</p>
