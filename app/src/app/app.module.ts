@@ -13,8 +13,9 @@ import { ViewTripPageComponent } from './view-trip-page/view-trip-page.component
 import { NavComponent } from './nav/nav.component';
 import { SignupFormComponent } from './signup-form/signup-form.component'
 
-
 import { LoginFormComponent } from './login-form/login-form.component';
+import { LodgingTabComponent } from './lodging-tab/lodging-tab.component';
+
 
 // Angular Material component imports
 import {HttpClientModule} from '@angular/common/http'
@@ -23,8 +24,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { AddDestinationFormComponent } from './components/add-destination-form/add-destination-form.component';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -40,6 +44,8 @@ import { AddDestinationFormComponent } from './components/add-destination-form/a
     LoginFormComponent,
     AddButtonComponent,
     AddDestinationFormComponent,
+    FooterComponent,
+    LodgingTabComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,18 @@ import { AddDestinationFormComponent } from './components/add-destination-form/a
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

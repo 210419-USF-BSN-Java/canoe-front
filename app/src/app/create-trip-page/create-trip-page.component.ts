@@ -20,6 +20,7 @@ export class CreateTripPageComponent implements OnInit {
   location: string = '';
   view: string = '';
 
+
   controlView(view: string): void {
     this.view = view;
   }
