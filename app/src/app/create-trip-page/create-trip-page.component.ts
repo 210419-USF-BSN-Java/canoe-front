@@ -21,6 +21,7 @@ export class CreateTripPageComponent implements OnInit {
     this.showElement = !this.showElement;
   }
   element: string = '';
+
   elements: string[] = [
     'Add Flight',
     'Add Lodging',
@@ -57,6 +58,7 @@ export class CreateTripPageComponent implements OnInit {
         this.showAttractions = false;
         this.showFood = true;
         break;
+
       default:
         console.log('default');
         break;

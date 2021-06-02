@@ -1,3 +1,19 @@
-a {
-  margin-right: 1rem;
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+mat-toolbar a {
+    color: rgba(255,255,255,.55);
+    font-size: medium;
+    text-decoration: none;
+    font-weight: 100;
+    margin: 0 8px 0 8px;
+}
+
+mat-toolbar a:hover {
+    color: rgb(207, 228, 247);
+}
+mat-toolbar {
+    background-color: #212529!important;
+    color: #fff;
+    opacity: .9;
+    
 }
