@@ -3,15 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-create-trip-page',
   templateUrl: './create-trip-page.component.html',
-  styleUrls: ['./create-trip-page.component.css']
+  styleUrls: ['./create-trip-page.component.css'],
 })
-
 export class CreateTripPageComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   showElement = false;
   showFlights = false;
@@ -20,18 +17,22 @@ export class CreateTripPageComponent implements OnInit {
   showLodging = false;
   location: string = '';
 
-
   addTrip() {
     this.showElement = !this.showElement;
   }
   element: string = '';
-  elements: string[] = ['Add Flight', 'Add Lodging', 'Add Local Attraction', 'Add Local Eatery'];
+
+  elements: string[] = [
+    'Add Flight',
+    'Add Lodging',
+    'Add Local Attraction',
+    'Add Local Eatery',
+  ];
   splitLocation: string[] = [];
 
-  city: string = this.splitLocation[0];
-  country: string = this.splitLocation[1];
+  city: string = '';
+  country: string = '';
   addTripElement(element: string) {
-
     switch (element) {
       case 'Add Flight':
         this.showFlights = true;
@@ -57,7 +58,10 @@ export class CreateTripPageComponent implements OnInit {
         this.showAttractions = false;
         this.showFood = true;
         break;
-      default: console.log("default"); break;
+
+      default:
+        console.log('default');
+        break;
     }
   }
 }
