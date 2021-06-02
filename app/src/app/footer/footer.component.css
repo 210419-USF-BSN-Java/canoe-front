@@ -1,0 +1,14 @@
+mat-toolbar {
+    position: fixed; 
+    right: 0; 
+    bottom: 0; 
+    left: 0;
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    opacity: .9;
+    background-color: #212529!important;
+    color: rgba(255,255,255,.55);
+}
+
