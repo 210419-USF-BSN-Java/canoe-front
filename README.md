@@ -69,6 +69,6 @@ All the details of traveling can be difficult to plan and manage. Canoe is an ap
 - Felix Nguyen  
 - Aliaksei Ivanchyk 
 - Kevin Cho
-- Acharya Deveraj 
+- Deveraj Acharya  
 
 ### MIT License
