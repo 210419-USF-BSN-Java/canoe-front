@@ -7,8 +7,12 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-image: '';
+  background-image: url('./app/images/abbey.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
 }
+
 
 .page-header {
   margin-bottom: 3rem;
