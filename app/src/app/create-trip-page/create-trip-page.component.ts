@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-trip-page.component.css'],
 })
 export class CreateTripPageComponent implements OnInit {
+  labels = ['Flight', 'Lodging', 'Food', 'Explore'];
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -16,52 +18,10 @@ export class CreateTripPageComponent implements OnInit {
   showAttractions = false;
   showLodging = false;
   location: string = '';
+  view: string = '';
 
-  addTrip() {
-    this.showElement = !this.showElement;
-  }
-  element: string = '';
 
-  elements: string[] = [
-    'Add Flight',
-    'Add Lodging',
-    'Add Local Attraction',
-    'Add Local Eatery',
-  ];
-  splitLocation: string[] = [];
-
-  city: string = '';
-  country: string = '';
-  addTripElement(element: string) {
-    switch (element) {
-      case 'Add Flight':
-        this.showFlights = true;
-        this.showLodging = false;
-        this.showAttractions = false;
-        this.showFood = false;
-        break;
-      case 'Add Lodging':
-        this.showFlights = false;
-        this.showLodging = true;
-        this.showAttractions = false;
-        this.showFood = false;
-        break;
-      case 'Add Local Attraction':
-        this.showFlights = false;
-        this.showLodging = false;
-        this.showAttractions = true;
-        this.showFood = false;
-        break;
-      case 'Add Local Eatery':
-        this.showFlights = false;
-        this.showLodging = false;
-        this.showAttractions = false;
-        this.showFood = true;
-        break;
-
-      default:
-        console.log('default');
-        break;
-    }
+  controlView(view: string): void {
+    this.view = view;
   }
 }
