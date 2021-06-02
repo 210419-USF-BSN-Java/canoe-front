@@ -1,4 +1,4 @@
-# Canoe
+# Canoe Travel Application
 
 #### Description 
 
