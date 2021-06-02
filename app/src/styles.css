@@ -9,12 +9,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.main-container {
-  margin: 0 1rem;
-  border: 1px solid red;
-  display: flex;
-}
-
 .page-header {
   margin-bottom: 3rem;
   padding: 20px 20px;
@@ -24,15 +18,6 @@ body {
   margin-top: 10rem;
 }
 
-/* create trip */
-.main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  border: 1px solid red;
-}
-
 .button-container {
   display: grid;
   gap: 1rem;
@@ -40,4 +25,9 @@ body {
 
 .flex {
   display: flex;
+}
+
+.main-container {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

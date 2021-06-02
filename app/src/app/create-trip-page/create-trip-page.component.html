@@ -22,13 +22,14 @@
         ></app-add-button>
       </div>
     </div>
-    <div class="main-content">
-      <!-- choose destination form displays by default -->
-      <div *ngIf="!view.length">ADD DESTINATION</div>
-      <div *ngIf="view === 'Flight'">ADD DESTINATION</div>
-      <div *ngIf="view === 'Lodging'">ADD Lodging</div>
-      <div *ngIf="view === 'Food'">ADD Food</div>
-      <div *ngIf="view === 'Explore'">ADD Explore</div>
+    <div class="main-content-container">
+      <div class="main-content">
+        <div *ngIf="!view.length">ADD DESTINATION</div>
+        <div *ngIf="view === 'Flight'">ADD Flight</div>
+        <div *ngIf="view === 'Lodging'">ADD Lodging</div>
+        <div *ngIf="view === 'Food'">ADD Food</div>
+        <div *ngIf="view === 'Explore'">ADD Explore</div>
+      </div>
     </div>
   </div>
 </div>
