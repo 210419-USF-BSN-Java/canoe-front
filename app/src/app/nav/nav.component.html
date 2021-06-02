@@ -1,16 +1,10 @@
-<nav style="opacity: .9;" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="margin-left:10px;">Canoe</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/admin">Admin</a>
-      <a class="nav-item nav-link" routerLink="/signup">Sign-up</a>
-      <a class="nav-item nav-link" routerLink="/login">Create a New Trip</a>
-      <a class="nav-item nav-link" routerLink="/view-trip">View Trips</a>
-    </div>
-  </div>
-</nav> 
-
-<app-footer></app-footer>
+<nav>
+  <mat-toolbar>
+    <span style="margin-right: 20px; font-weight: 100;">Canoe</span>
+    <a routerLink="/admin">Admin</a>
+    <a routerLink="/signup">Sign-up</a>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/create-trip">Add New Trip</a>
+    <a routerLink="/view-trip">View Trips</a>
+  </mat-toolbar>
+</nav>

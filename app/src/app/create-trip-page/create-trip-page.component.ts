@@ -26,7 +26,7 @@ export class CreateTripPageComponent implements OnInit {
   }
   element: string = '';
   elements: string[] = ['Add Flight', 'Add Lodging', 'Add Local Attraction', 'Add Local Eatery'];
-  splitLocation = location.split([,][1]);
+  splitLocation: string[] = [];
 
   city: string = this.splitLocation[0];
   country: string = this.splitLocation[1];
