@@ -1,0 +1,15 @@
+.side-menu-container {
+  position: relative;
+}
+
+.main-content-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* main-content-container {
+  display: flex;
+  justify-content: center;
+} */
