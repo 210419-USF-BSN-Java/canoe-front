@@ -23,5 +23,5 @@ exports.handler = async ( event ) => {
         console.log( "#### ERROR RETRIEVING AIRPORTS #####" )
         console.log( err )
     }
-    return response
+    return response;
 };
