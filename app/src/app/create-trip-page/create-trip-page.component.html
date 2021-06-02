@@ -5,15 +5,30 @@
     <div class="side-menu-container">
       <div class="button-container">
         <app-add-button
-          *ngFor="let label of labels"
-          [label]="label"
+          [label]="labels[0]"
+          (controlView)="controlView(labels[0])"
+        ></app-add-button>
+        <app-add-button
+          [label]="labels[1]"
+          (controlView)="controlView(labels[1])"
+        ></app-add-button>
+        <app-add-button
+          [label]="labels[2]"
+          (controlView)="controlView(labels[2])"
+        ></app-add-button>
+        <app-add-button
+          [label]="labels[3]"
+          (controlView)="controlView(labels[3])"
         ></app-add-button>
       </div>
     </div>
     <div class="main-content">
       <!-- choose destination form displays by default -->
-
-      main content
+      <div *ngIf="!view.length">ADD DESTINATION</div>
+      <div *ngIf="view === 'Flight'">ADD DESTINATION</div>
+      <div *ngIf="view === 'Lodging'">ADD Lodging</div>
+      <div *ngIf="view === 'Food'">ADD Food</div>
+      <div *ngIf="view === 'Explore'">ADD Explore</div>
     </div>
   </div>
 </div>

@@ -22,6 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { AddButtonComponent } from './components/add-button/add-button.component';
+import { AddDestinationFormComponent } from './components/add-destination-form/add-destination-form.component';
 
 
 
@@ -38,6 +39,7 @@ import { AddButtonComponent } from './components/add-button/add-button.component
     SignupFormComponent,
     LoginFormComponent,
     AddButtonComponent,
+    AddDestinationFormComponent,
   ],
   imports: [
     BrowserModule,

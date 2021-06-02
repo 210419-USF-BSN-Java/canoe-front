@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-trip-page.component.css'],
 })
 export class CreateTripPageComponent implements OnInit {
+  labels = ['Flight', 'Lodging', 'Food', 'Explore'];
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -21,6 +23,4 @@ export class CreateTripPageComponent implements OnInit {
   controlView(view: string): void {
     this.view = view;
   }
-
-  labels = ['Flight', 'Lodging', 'Food', 'Explore'];
 }
