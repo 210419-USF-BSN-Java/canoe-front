@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DestinationService } from '../../services/destination.service';
 
 @Component({
   selector: 'app-destination-form',
@@ -9,9 +10,10 @@ export class DestinationFormComponent implements OnInit {
   destination = '';
   submitForm() {
     console.log(this.destination);
+    this.dService.setDestination(this.destination);
   }
 
-  constructor() {}
+  constructor(private dService: DestinationService) {}
 
   ngOnInit(): void {}
 }
