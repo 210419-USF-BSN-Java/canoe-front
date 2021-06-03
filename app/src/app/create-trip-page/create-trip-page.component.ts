@@ -12,14 +12,7 @@ export class CreateTripPageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  showElement = false;
-  showFlights = false;
-  showFood = false;
-  showAttractions = false;
-  showLodging = false;
-  location: string = '';
   view: string = '';
-
 
   controlView(view: string): void {
     this.view = view;
