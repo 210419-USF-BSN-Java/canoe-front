@@ -15,11 +15,12 @@
     </div>
     <div class="main-content-container">
       <div class="main-content">
-        <div *ngIf="!view.length">ADD DESTINATION</div>
-        <div *ngIf="view === 'Flight'">ADD Flight</div>
-        <div *ngIf="view === 'Lodging'">
-          <app-lodging-tab></app-lodging-tab>
+
+        <div *ngIf="!view.length">
+          <app-destination-form></app-destination-form>
         </div>
+        <div *ngIf="view === 'Flight'"><app-flights></app-flights></div>
+        <div *ngIf="view === 'Lodging'"><app-lodging-tab></app-lodging-tab></div>
         <div *ngIf="view === 'Food'">ADD Food</div>
         <div *ngIf="view === 'Explore'">ADD Explore</div>
       </div>
