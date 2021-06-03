@@ -15,10 +15,13 @@ export class LodgingTabComponent implements OnInit {
   ngOnInit(): void {
   }
   onClickSubmit() {
-    alert("Entered lodging: " + this.lodging);
-    
-    const body = JSON.stringify(Object);
+    console.log("Entered lodging: " + this.lodging);
+
+    let body = new FormData().append('place', this.lodging);
+    const obj = JSON.stringify(body);
+
     const params = new HttpParams().append('place', this.lodging);
+
     const headers = new HttpHeaders().append(
         'Content-Type',
         'application/json'
@@ -26,8 +29,7 @@ export class LodgingTabComponent implements OnInit {
 
     this.http
       .post<any>('https://cw2hbv7nwi.execute-api.us-east-2.amazonaws.com/Lodging-API', body, {
-        headers: headers,
-        params: params,
+        headers: headers
       })
       .subscribe((res) => console.log(res));
   }
