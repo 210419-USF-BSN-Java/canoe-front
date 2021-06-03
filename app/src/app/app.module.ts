@@ -29,6 +29,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { DestinationFormComponent } from './components/destination-form/destination-form.component';
+import { FlightsComponent } from './components/flights/flights.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { DestinationFormComponent } from './components/destination-form/destinat
     FooterComponent,
     LodgingTabComponent,
     DestinationFormComponent,
+    FlightsComponent,
   ],
   imports: [
     BrowserModule,

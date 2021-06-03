@@ -9,11 +9,10 @@ import { DestinationService } from '../../services/destination.service';
 export class DestinationFormComponent implements OnInit {
   destination = '';
   submitForm() {
-    console.log(this.destination);
     this.dService.setDestination(this.destination);
   }
 
-  constructor(private dService: DestinationService) {}
+  constructor(public dService: DestinationService) {}
 
   ngOnInit(): void {}
 }

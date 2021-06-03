@@ -10,4 +10,8 @@ export class DestinationService {
   setDestination(destination: string) {
     this.destination = destination;
   }
+
+  public getDestination() {
+    return this.destination;
+  }
 }
