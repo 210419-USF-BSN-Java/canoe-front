@@ -28,14 +28,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
-<<<<<<< HEAD
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-=======
 import { DestinationFormComponent } from './components/destination-form/destination-form.component';
 import { FlightsComponent } from './components/flights/flights.component';
->>>>>>> 308a17723126592e0fb652a078e7bb6df4352d39
+
 
 @NgModule({
   declarations: [
@@ -67,10 +63,7 @@ import { FlightsComponent } from './components/flights/flights.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-<<<<<<< HEAD
     ReactiveFormsModule
-=======
->>>>>>> 308a17723126592e0fb652a078e7bb6df4352d39
   ],
   exports: [
     MatButtonModule,
