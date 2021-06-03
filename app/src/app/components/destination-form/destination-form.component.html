@@ -1,0 +1,19 @@
+<div class="form-container">
+  <form class="form-container">
+    <div class="input-container">
+      <mat-form-field>
+        <mat-label>destination</mat-label>
+        <input
+          id="float-input"
+          name="destination"
+          type="text"
+          matInput
+          [(ngModel)]="destination"
+        />
+      </mat-form-field>
+      <button class="form-button" mat-raised-button (click)="submitForm()">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
