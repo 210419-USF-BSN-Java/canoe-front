@@ -24,7 +24,9 @@
     </div>
     <div class="main-content-container">
       <div class="main-content">
-        <div *ngIf="!view.length">ADD DESTINATION</div>
+        <div *ngIf="!view.length">
+          <app-destination-form></app-destination-form>
+        </div>
         <div *ngIf="view === 'Flight'">ADD Flight</div>
         <div *ngIf="view === 'Lodging'">ADD Lodging</div>
         <div *ngIf="view === 'Food'">ADD Food</div>
