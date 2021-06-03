@@ -35,3 +35,14 @@ body {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
+/* common simple form styling */
+.input-container {
+  display: grid;
+  width: 250px;
+  justify-content: center;
+}
+
+.form-button {
+  /* width: 2rem; */
+}
