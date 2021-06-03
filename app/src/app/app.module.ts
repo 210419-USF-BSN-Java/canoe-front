@@ -28,6 +28,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { DestinationFormComponent } from './components/destination-form/destination-form.component';
 import { FlightsComponent } from './components/flights/flights.component';
 
@@ -61,6 +62,7 @@ import { FlightsComponent } from './components/flights/flights.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    ReactiveFormsModule
   ],
   exports: [
     MatButtonModule,
