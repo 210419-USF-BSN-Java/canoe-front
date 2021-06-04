@@ -1,63 +1,34 @@
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
-
 <p style="display: flex; flex-flow: row; align-items: center;">
     <mat-form-field appearance="standard">
         <mat-label>Select a city, hotel, country, location</mat-label>
         <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="lodging" name="lodging">
 
     </mat-form-field>
-    <button mat-button color="accent" style="height:50%" (click)="onClickSubmit()" type="submit">Search</button>
+    <button mat-button color="accent" style="height:50%" (click)="onClickSubmit(lodgingMap)"
+        type="submit">Search</button>
 
 
 </p>
 
-<p>For this lodging tab I need</p>
-
-
-<ul>
-    <li>
-        Post an API request from the form field and put it in the thing
-    </li>
-    <li> Have search fields for lodging</li>
-    <li>Maximum radius? Links to google maps? Return latitude longitude? </li>
-    <li>List of places and addresses, how far away they are from city?</li>
-    <li>If city is just the approximate middle then should be ok to make city the reference point</li>
-    <li>Select lodging button, add how long you are staying there</li>
-
-
-</ul>
-
-<table ng-app="myApp" ng-controller="myCtrl">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Rating</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- using ngFor on row -->
-        <!-- <tr *ngFor="let student of res">
-
-      <td>{{student.name}}</td>
-      <td>{{student.age}}</td>
-      <td>{{student.marks}}</td>
-
-    </tr> -->
-
-    </tbody>
+<table class="mat-elevation-z8" mat-table ng-app="myApp" ng-controller="myCtrl">
+    <ng-container>
+        <thead>
+            <tr>
+                <mat-header-cell>#</mat-header-cell>
+                <mat-header-cell>Name</mat-header-cell>
+                <mat-header-cell>Address</mat-header-cell>
+                <mat-header-cell>Rating</mat-header-cell>
+                <mat-header-cell>Save</mat-header-cell>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of lodgingMap">
+                <mat-cell>{{x.number}}</mat-cell>
+                <mat-cell>{{x.name}}</mat-cell>
+                <mat-cell>{{x.address}}</mat-cell>
+                <mat-cell>{{x.rating}}</mat-cell>
+                <button mat-button color="accent">Save this place</button>
+            </tr>
+        </tbody>
+    </ng-container>
 </table>
-
-<div ng-app="myApp" ng-controller="myCtrl">
-
-    <p ng-bind-html="myText"></p>
-
-</div>
-
-<script>
-    var app = angular.module("myApp", ['ngSanitize']);
-    app.controller("myCtrl", function ($scope) {
-        $scope.data = "My name is: <h1>John Doe</h1>";
-    });
-</script>

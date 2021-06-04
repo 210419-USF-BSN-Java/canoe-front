@@ -26,6 +26,8 @@ import { AddButtonComponent } from './components/add-button/add-button.component
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -64,6 +66,7 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
+    MatTableModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
