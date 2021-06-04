@@ -25,9 +25,11 @@ import { AddButtonComponent } from './components/add-button/add-button.component
 
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -64,6 +66,8 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
@@ -71,6 +75,7 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    MatCheckboxModule,
     ReactiveFormsModule
   ],
   exports: [
@@ -83,4 +88,4 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

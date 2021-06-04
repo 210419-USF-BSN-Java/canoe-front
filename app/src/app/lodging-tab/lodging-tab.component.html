@@ -1,34 +1,47 @@
-<p style="display: flex; flex-flow: row; align-items: center;">
-    <mat-form-field appearance="standard">
-        <mat-label>Select a city, hotel, country, location</mat-label>
-        <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="lodging" name="lodging">
+<section>
+    <div style="display: flex; flex-flow: row; align-items: center;">
+        <mat-form-field class="mat-search" appearance="standard">
+            <mat-label>Select a city, hotel, country, location</mat-label>
+            <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="lodging" name="lodging">
 
-    </mat-form-field>
-    <button mat-button color="accent" style="height:50%" (click)="onClickSubmit(lodgingMap)"
-        type="submit">Search</button>
+        </mat-form-field>
+        <button mat-button color="accent" style="height:50%" (click)="onClickSubmit(lodgingMap)"
+            type="submit">Search</button>
 
+        <mat-form-field>
+            <input matInput [matDatepicker]="start" placeholder="Choose a starting date">
+            <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+            <mat-datepicker #start></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="end" placeholder="Choose an end date">
+            <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+            <mat-datepicker #end></mat-datepicker>
 
-</p>
+        </mat-form-field>
+        <button mat-button color="accent">Save these details</button>
 
-<table class="mat-elevation-z8" mat-table ng-app="myApp" ng-controller="myCtrl">
-    <ng-container>
+    </div>
+
+    <table [style.padding]="'15px'" style="width: 100%;" class="mat-elevation-z8">
         <thead>
             <tr>
-                <mat-header-cell>#</mat-header-cell>
-                <mat-header-cell>Name</mat-header-cell>
-                <mat-header-cell>Address</mat-header-cell>
-                <mat-header-cell>Rating</mat-header-cell>
-                <mat-header-cell>Save</mat-header-cell>
+                <td style="padding-right: 10px;">#</td>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Rating</td>
+                <td>Select</td>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let x of lodgingMap">
-                <mat-cell>{{x.number}}</mat-cell>
-                <mat-cell>{{x.name}}</mat-cell>
-                <mat-cell>{{x.address}}</mat-cell>
-                <mat-cell>{{x.rating}}</mat-cell>
-                <button mat-button color="accent">Save this place</button>
+                <td>{{x.number}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.address}}</td>
+                <td>{{x.rating}}</td>
+                <td><mat-checkbox></mat-checkbox>
+                </td>
             </tr>
         </tbody>
-    </ng-container>
-</table>
+    </table>
+</section>

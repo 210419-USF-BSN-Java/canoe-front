@@ -17,14 +17,16 @@ export class LodgingTabComponent implements OnInit {
   lodgingMap: LodgingMap[] = [];
 
   constructor(private http: HttpClient) {
-   }
-  ngOnInit(): void { 
+  }
+  ngOnInit(): void {
+    
 
   }
 
   onClickSubmit(data: LodgingMap[]) {
 
     console.log("Entered location: " + this.lodging);
+
     this.lodgingMap.splice(0, 20);
     this.http.get<any>(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${this.lodging} lodging&radius=150000&type=lodging&key=AIzaSyADD_M19PUWlXleB8ix4PnIjLh9F2D90uQ`).subscribe(
       (res) => {
@@ -41,7 +43,7 @@ export class LodgingTabComponent implements OnInit {
             name: names,
             address: addresses,
             rating: ratings
-          });          
+          });
         };
         console.log(this.lodgingMap);
       })

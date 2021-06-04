@@ -1,0 +1,24 @@
+.mat-form-field{
+    margin: 5px;
+}
+.mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent {
+    border-style: solid;
+    border-width: thin;
+    border-color: #ff4081;
+    margin: 10px;
+}
+.mat-search {
+    margin-bottom: 17px;
+}
+tr {
+    font: 400 14px/20px Roboto, "Helvetica Neue";
+    border-style: ridge;
+    border-color: black;
+}
+td {
+    margin: 15px;
+    padding-top: 5px;
+}
+table {
+    margin-bottom: 100px;
+}
