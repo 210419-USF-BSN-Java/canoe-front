@@ -11,7 +11,7 @@ export class CreateTripPageComponent implements OnInit {
 
   constructor(private dService: DestinationService) {}
 
-  view = '';
+  view = 'from';
 
   from = '';
   destination = '';
