@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DestinationService } from './destination.service';
 import { HttpClient } from '@angular/common/http';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root',
@@ -18,11 +19,12 @@ export class FlightService {
   ) {}
 
   public getFromAirport() {
-    console.log('FLIGHT SERVICE');
+    console.log('flight service: getFromAirport');
     return this.httpClient.post(this.url, { place: this.dService.getFrom() });
   }
 
   public getDestinationAirport() {
+    console.log('flight service: getDestinationAirport');
     return this.httpClient.post(this.url, {
       place: this.dService.getDestination(),
     });
