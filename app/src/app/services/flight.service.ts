@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { DestinationService } from './destination.service';
+// import { DestinationService } from './destination.service';
 import { HttpClient } from '@angular/common/http';
-import axios from 'axios';
+// import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,38 +11,13 @@ import axios from 'axios';
 export class FlightService {
   url =
     'https://maps.googleapis.com/maps/api/place/textsearch/json?query=airport';
-  fromAirport = '';
-  destinationAirport = '';
-  flights: string[] = [];
+  airport: any = null;
 
-  constructor(
-    private dService: DestinationService,
-    private httpClient: HttpClient
-  ) {}
+  constructor(private httpClient: HttpClient) {}
 
-  public async getFromAirport() {
-    const results = await axios.get(
-      `${this.url} ${this.fromAirport}&radius=150000&key=${process.env.GMAPS_API_KEY}`
+  getAirport(place: string) {
+    return this.httpClient.get(
+      `${this.url} ${place}&radius=150000&key=${environment.STREAM}`
     );
-
-    const airports = await results.data.results.filter(
-      (el: { types: string | string[] }) => el.types.includes('airport')
-    );
-
-    console.log(airports[0].name);
-    return airports[0].name;
-  }
-
-  public async getDestinationAirport() {
-    const results = await axios.get(
-      `${this.url} ${this.destinationAirport}&radius=150000&key=${process.env.GMAPS_API_KEY}`
-    );
-
-    const airports = await results.data.results.filter(
-      (el: { types: string | string[] }) => el.types.includes('airport')
-    );
-
-    console.log(airports[0].name);
-    return airports[0].name;
   }
 }
