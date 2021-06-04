@@ -1,23 +1,34 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { DestinationService } from './destination.service';
+import { HttpClient } from '@angular/common/http';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FlightService {
+  url =
+    'https://03xsaqcsqh.execute-api.us-east-2.amazonaws.com/api-places-airports';
+  fromAirport = '';
+  destinationAirport = '';
+  flights: string[] = [];
 
-  destination: string = '';
+  constructor(
+    private dService: DestinationService,
+    private httpClient: HttpClient
+  ) {}
 
-  constructor(public dService: DestinationService) {}
+  public getFromAirport() {
+    console.log('flight service: getFromAirport');
+    return this.httpClient.post(this.url, { place: this.dService.getFrom() });
+  }
 
-  public test() {
-    console.log('FLIGHT SERVICE');
-    console.log(this.dService.getFrom());
-    console.log(this.dService.getDestination());
+  public async getDestinationAirport() {
+    const airport = await axios.post(this.url, { place: 'paris' });
 
-    // get airports with google places
-
-    // get flights with amadeus
-
+    console.log(airport);
+    return this.httpClient.post(this.url, {
+      place: this.dService.getDestination(),
+    });
   }
 }
