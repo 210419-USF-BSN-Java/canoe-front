@@ -8,7 +8,7 @@ import axios from 'axios';
 })
 export class FlightService {
   url =
-    'https://03xsaqcsqh.execute-api.us-east-2.amazonaws.com/api-places-airports';
+    'https://maps.googleapis.com/maps/api/place/textsearch/json?query=airport';
   fromAirport = '';
   destinationAirport = '';
   flights: string[] = [];
@@ -18,17 +18,29 @@ export class FlightService {
     private httpClient: HttpClient
   ) {}
 
-  public getFromAirport() {
-    console.log('flight service: getFromAirport');
-    return this.httpClient.post(this.url, { place: this.dService.getFrom() });
+  public async getFromAirport() {
+    const results = await axios.get(
+      `${this.url} ${this.fromAirport}&radius=150000&key=${process.env.GMAPS_API_KEY}`
+    );
+
+    const airports = await results.data.results.filter(
+      (el: { types: string | string[] }) => el.types.includes('airport')
+    );
+
+    console.log(airports[0].name);
+    return airports[0].name;
   }
 
   public async getDestinationAirport() {
-    const airport = await axios.post(this.url, { place: 'paris' });
+    const results = await axios.get(
+      `${this.url} ${this.destinationAirport}&radius=150000&key=${process.env.GMAPS_API_KEY}`
+    );
 
-    console.log(airport);
-    return this.httpClient.post(this.url, {
-      place: this.dService.getDestination(),
-    });
+    const airports = await results.data.results.filter(
+      (el: { types: string | string[] }) => el.types.includes('airport')
+    );
+
+    console.log(airports[0].name);
+    return airports[0].name;
   }
 }
