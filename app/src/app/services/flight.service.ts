@@ -5,6 +5,9 @@ import { DestinationService } from './destination.service';
   providedIn: 'root',
 })
 export class FlightService {
+
+  destination: string = '';
+
   constructor(public dService: DestinationService) {}
 
   public test() {
@@ -15,5 +18,6 @@ export class FlightService {
     // get airports with google places
 
     // get flights with amadeus
+
   }
 }
