@@ -1,10 +1,13 @@
-<p  style="display: flex; flex-flow: row; align-items: center;">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+
+<p style="display: flex; flex-flow: row; align-items: center;">
     <mat-form-field appearance="standard">
-      <mat-label>Select a city, hotel, country, location</mat-label>
-      <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="lodging" name="lodging">
+        <mat-label>Select a city, hotel, country, location</mat-label>
+        <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="lodging" name="lodging">
 
     </mat-form-field>
-    <button mat-button color="accent" style="height:50%"(click)="onClickSubmit()" type="submit">Search</button>
+    <button mat-button color="accent" style="height:50%" (click)="onClickSubmit()" type="submit">Search</button>
 
 
 </p>
@@ -24,3 +27,37 @@
 
 
 </ul>
+
+<table ng-app="myApp" ng-controller="myCtrl">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- using ngFor on row -->
+        <!-- <tr *ngFor="let student of res">
+
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+      <td>{{student.marks}}</td>
+
+    </tr> -->
+
+    </tbody>
+</table>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    <p ng-bind-html="myText"></p>
+
+</div>
+
+<script>
+    var app = angular.module("myApp", ['ngSanitize']);
+    app.controller("myCtrl", function ($scope) {
+        $scope.data = "My name is: <h1>John Doe</h1>";
+    });
+</script>

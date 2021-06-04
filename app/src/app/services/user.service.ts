@@ -31,7 +31,7 @@ export class UserService {
     console.log('***************');
 
     return this.http
-      .post('http://localhost:8085/user/signup', signUpFormData)
+      .post('http://ec2-3-141-202-118.us-east-2.compute.amazonaws.com:8085/user/signup', signUpFormData)
       .pipe(map((res) => res as string));
   }
 
