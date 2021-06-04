@@ -1,26 +1,47 @@
-<p  style="display: flex; flex-flow: row; align-items: center;">
-    <mat-form-field appearance="standard">
-      <mat-label>Select a city, hotel, country, location</mat-label>
-      <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="lodging" name="lodging">
+<section>
+    <div style="display: flex; flex-flow: row; align-items: center;">
+        <mat-form-field class="mat-search" appearance="standard">
+            <mat-label>Select a city, hotel, country, location</mat-label>
+            <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="lodging" name="lodging">
 
-    </mat-form-field>
-    <button mat-button color="accent" style="height:50%"(click)="onClickSubmit()" type="submit">Search</button>
+        </mat-form-field>
+        <button mat-button color="accent" style="height:50%" (click)="onClickSubmit(lodgingMap)"
+            type="submit">Search</button>
 
+        <mat-form-field>
+            <input matInput [matDatepicker]="start" placeholder="Choose a starting date">
+            <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+            <mat-datepicker #start></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="end" placeholder="Choose an end date">
+            <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+            <mat-datepicker #end></mat-datepicker>
 
-</p>
+        </mat-form-field>
+        <button mat-button color="accent">Save these details</button>
 
-<p>For this lodging tab I need</p>
+    </div>
 
-
-<ul>
-    <li>
-        Post an API request from the form field and put it in the thing
-    </li>
-    <li> Have search fields for lodging</li>
-    <li>Maximum radius? Links to google maps? Return latitude longitude? </li>
-    <li>List of places and addresses, how far away they are from city?</li>
-    <li>If city is just the approximate middle then should be ok to make city the reference point</li>
-    <li>Select lodging button, add how long you are staying there</li>
-
-
-</ul>
+    <table [style.padding]="'15px'" style="width: 100%;" class="mat-elevation-z8">
+        <thead>
+            <tr>
+                <td style="padding-right: 10px;">#</td>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Rating</td>
+                <td>Select</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of lodgingMap">
+                <td>{{x.number}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.address}}</td>
+                <td>{{x.rating}}</td>
+                <td><mat-checkbox></mat-checkbox>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
