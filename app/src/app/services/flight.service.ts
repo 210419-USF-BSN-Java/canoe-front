@@ -1,23 +1,30 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { DestinationService } from './destination.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FlightService {
+  url =
+    'https://03xsaqcsqh.execute-api.us-east-2.amazonaws.com/api-places-airports';
+  fromAirport = '';
+  destinationAirport = '';
+  flights: string[] = [];
 
-  destination: string = '';
+  constructor(
+    private dService: DestinationService,
+    private httpClient: HttpClient
+  ) {}
 
-  constructor(public dService: DestinationService) {}
-
-  public test() {
+  public getFromAirport() {
     console.log('FLIGHT SERVICE');
-    console.log(this.dService.getFrom());
-    console.log(this.dService.getDestination());
+    return this.httpClient.post(this.url, { place: this.dService.getFrom() });
+  }
 
-    // get airports with google places
-
-    // get flights with amadeus
-
+  public getDestinationAirport() {
+    return this.httpClient.post(this.url, {
+      place: this.dService.getDestination(),
+    });
   }
 }
