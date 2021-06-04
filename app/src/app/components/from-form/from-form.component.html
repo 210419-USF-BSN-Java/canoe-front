@@ -1,15 +1,15 @@
 <div class="form-container">
-  <div>Where would you like to go?</div>
+  <div>Where are you departing from?</div>
   <form class="form-container">
     <div class="input-container">
       <mat-form-field>
-        <mat-label>destination</mat-label>
+        <mat-label>city, state or zipcode</mat-label>
         <input
           id="float-input"
           name="destination"
           type="text"
           matInput
-          [(ngModel)]="destination"
+          [(ngModel)]="from"
         />
       </mat-form-field>
       <button class="form-button" mat-raised-button (click)="submitForm()">

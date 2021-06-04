@@ -24,8 +24,18 @@
     </div>
     <div class="main-content-container">
       <div class="main-content">
-        <div *ngIf="!view.length">
-          <app-destination-form></app-destination-form>
+        <div *ngIf="view === 'from'">
+          <app-from-form
+            (controlView)="controlView('destination')"
+          ></app-from-form>
+        </div>
+        <div *ngIf="view === 'destination'">
+          <app-destination-form
+            (controlView)="controlView('prompt')"
+          ></app-destination-form>
+        </div>
+        <div *ngIf="view === 'prompt'">
+          Choose from the four categories to the left
         </div>
         <div *ngIf="view === 'Flight'"><app-flights></app-flights></div>
         <div *ngIf="view === 'Lodging'">ADD Lodging</div>

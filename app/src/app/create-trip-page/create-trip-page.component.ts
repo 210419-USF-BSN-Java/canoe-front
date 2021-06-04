@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DestinationService } from '../services/destination.service';
 
 @Component({
   selector: 'app-create-trip-page',
@@ -8,13 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class CreateTripPageComponent implements OnInit {
   labels = ['Flight', 'Lodging', 'Food', 'Explore'];
 
-  constructor() {}
+  constructor(private dService: DestinationService) {}
 
-  ngOnInit(): void {}
-
-  view: string = '';
+  view = 'from';
+  from = '';
+  destination = '';
 
   controlView(view: string): void {
     this.view = view;
   }
+
+  ngOnInit() {}
 }

@@ -30,6 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { DestinationFormComponent } from './components/destination-form/destination-form.component';
 import { FlightsComponent } from './components/flights/flights.component';
+import { FromFormComponent } from './components/from-form/from-form.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FlightsComponent } from './components/flights/flights.component';
     LodgingTabComponent,
     DestinationFormComponent,
     FlightsComponent,
+    FromFormComponent,
   ],
   imports: [
     BrowserModule,
