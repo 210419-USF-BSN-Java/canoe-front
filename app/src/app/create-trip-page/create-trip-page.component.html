@@ -16,6 +16,23 @@
     <div class="main-content-container">
       <div class="main-content">
 
+        <div *ngIf="!view">
+          <app-from-form
+            (controlView)="controlView('destination')"
+            (formSubmit)="formSubmit()"
+          ></app-from-form>
+        </div>
+        <div *ngIf="view === 'destination'">
+          <app-destination-form
+            (controlView)="controlView('prompt')"
+            (formSubmit)="formSubmit()"
+          ></app-destination-form>
+        </div>
+        <div *ngIf="view === 'prompt'">
+          Choose from the four categories to the left ** replace with styled prompt **
+        </div>
+        <div *ngIf="view === 'Flight'"><app-flights></app-flights></div>
+        <div *ngIf="view === 'Lodging'">ADD Lodging</div>
         <div *ngIf="!view.length">
           <app-destination-form></app-destination-form>
         </div>
@@ -23,6 +40,9 @@
         <div *ngIf="view === 'Lodging'"><app-lodging-tab></app-lodging-tab></div>
         <div *ngIf="view === 'Food'">ADD Food</div>
         <div *ngIf="view === 'Explore'">ADD Explore</div>
+      </div>
+      <div class="card-container">
+        <app-trip-card *ngIf="from && destination"></app-trip-card>
       </div>
     </div>
   </div>
