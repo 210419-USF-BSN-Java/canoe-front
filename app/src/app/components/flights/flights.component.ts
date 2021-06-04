@@ -10,7 +10,7 @@ export class FlightsComponent implements OnInit {
   constructor(private fService: FlightService) {}
 
   ngOnInit(): void {
-    this.fService.getFromAirport();
+    this.fService.getDestinationAirport();
     // this.fService.getDestinationAirport();
   }
 }

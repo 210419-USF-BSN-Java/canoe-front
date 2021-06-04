@@ -23,8 +23,10 @@ export class FlightService {
     return this.httpClient.post(this.url, { place: this.dService.getFrom() });
   }
 
-  public getDestinationAirport() {
-    console.log('flight service: getDestinationAirport');
+  public async getDestinationAirport() {
+    const airport = await axios.post(this.url, { place: 'paris' });
+
+    console.log(airport);
     return this.httpClient.post(this.url, {
       place: this.dService.getDestination(),
     });
