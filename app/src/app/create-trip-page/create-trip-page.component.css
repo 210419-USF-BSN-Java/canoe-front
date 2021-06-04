@@ -5,11 +5,7 @@
 .main-content-container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  padding-left: 5rem;
 }
-
-/* main-content-container {
-  display: flex;
-  justify-content: center;
-} */

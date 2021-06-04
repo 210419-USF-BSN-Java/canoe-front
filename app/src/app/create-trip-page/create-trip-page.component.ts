@@ -11,10 +11,20 @@ export class CreateTripPageComponent implements OnInit {
 
   constructor(private dService: DestinationService) {}
 
-  view = 'from';
+  view = '';
+
   from = '';
   destination = '';
 
+  // onDestinationSubmit(d: any): void {
+  //   this.destination = d;
+  //   this.dService.setDestination(d);
+  // }
+
+  formSubmit(): void {
+    this.destination = this.dService.getDestination();
+    this.from = this.dService.getFrom();
+  }
   controlView(view: string): void {
     this.view = view;
   }

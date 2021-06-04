@@ -9,12 +9,14 @@ import { DestinationService } from '../../services/destination.service';
 export class FromFormComponent implements OnInit {
   from: string = '';
   @Output() controlView = new EventEmitter<string>();
+  @Output() formSubmit = new EventEmitter();
 
   constructor(private dService: DestinationService) {}
 
   submitForm() {
+    this.formSubmit.emit(); // sets from in create trip
+    this.controlView.emit(); // controls create trip view
     this.dService.setFrom(this.from);
-    this.controlView.emit('destination');
   }
 
   ngOnInit(): void {}

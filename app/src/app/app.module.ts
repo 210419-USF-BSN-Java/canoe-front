@@ -31,6 +31,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DestinationFormComponent } from './components/destination-form/destination-form.component';
 import { FlightsComponent } from './components/flights/flights.component';
 import { FromFormComponent } from './components/from-form/from-form.component';
+import { TripCardComponent } from './components/trip-card/trip-card.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { FromFormComponent } from './components/from-form/from-form.component';
     DestinationFormComponent,
     FlightsComponent,
     FromFormComponent,
+    TripCardComponent,
   ],
   imports: [
     BrowserModule,

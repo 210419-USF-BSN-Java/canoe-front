@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DestinationService } from '../../services/destination.service';
 
 @Component({
@@ -8,7 +8,12 @@ import { DestinationService } from '../../services/destination.service';
 })
 export class DestinationFormComponent implements OnInit {
   destination = '';
+
+  @Output() controlView = new EventEmitter<string>();
+  @Output() formSubmit = new EventEmitter();
   submitForm() {
+    this.formSubmit.emit(); // sets from in create trip
+    this.controlView.emit(); // controls create trip view
     this.dService.setDestination(this.destination);
   }
 
