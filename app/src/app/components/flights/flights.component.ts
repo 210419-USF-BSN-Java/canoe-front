@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class FlightsComponent implements OnInit {
   fromAirport = {};
-  toAirport = '';
+  toAirport = {};
 
   constructor(
     private fService: FlightService,
@@ -19,7 +19,7 @@ export class FlightsComponent implements OnInit {
 
   getFromAirport(): void {
     this.fService.getAirport(this.dService.getFrom()).subscribe((airports) => {
-      console.log(airports);
+      this.fromAirport = airports;
     });
   }
 
@@ -27,16 +27,18 @@ export class FlightsComponent implements OnInit {
     this.fService
       .getAirport(this.dService.getDestination())
       .subscribe((airports) => {
-        console.log(airports);
+        this.toAirport = airports;
       });
   }
 
-  // getToAirport(): void {
-  //   this.toAirport = this.fService.getAirport(this.dService.getDestination());
-  // }
+  getDepartingFlights() {}
+
+  getReturningFlights() {}
 
   ngOnInit(): void {
     this.getFromAirport();
     this.getToAirport();
+    this.getDepartingFlights();
+    this.getReturningFlights();
   }
 }
