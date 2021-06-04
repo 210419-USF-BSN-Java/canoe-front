@@ -1,12 +1,20 @@
+<p  style="display: flex; flex-flow: row; align-items: center;">
+    <mat-form-field appearance="standard">
+      <mat-label>Select a city, hotel, country, location</mat-label>
+      <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="lodging" name="lodging">
+
+    </mat-form-field>
+    <button mat-button color="accent" style="height:50%"(click)="onClickSubmit()" type="submit">Search</button>
+
+
+</p>
+
 <p>For this lodging tab I need</p>
 
 
 <ul>
     <li>
-        Get whatever city is in the city field
-    </li>
-    <li>
-        Get whatever country is in the country field
+        Post an API request from the form field and put it in the thing
     </li>
     <li> Have search fields for lodging</li>
     <li>Maximum radius? Links to google maps? Return latitude longitude? </li>
