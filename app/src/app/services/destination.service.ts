@@ -4,15 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DestinationService {
-  from: string = '';
-  destination: string = '';
+  from = '';
+  destination = '';
+  departDate = '';
+  returnDate = '';
 
   constructor() {}
   setFrom(from: string) {
     this.from = from;
   }
 
-  public getFrom() {
+  getFrom() {
     return this.from;
   }
 
@@ -20,7 +22,23 @@ export class DestinationService {
     this.destination = destination;
   }
 
-  public getDestination() {
+  getDestination() {
     return this.destination;
+  }
+
+  getDepartDate() {
+    return this.departDate;
+  }
+
+  setDepartDate(date: string) {
+    this.departDate = date;
+  }
+
+  getReturnDate() {
+    return this.returnDate;
+  }
+
+  setReturnDate(date: string) {
+    this.returnDate = date;
   }
 }

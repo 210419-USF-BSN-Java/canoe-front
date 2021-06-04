@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlightService } from '../../services/flight.service';
+import { DestinationService } from '../../services/destination.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-flights',
@@ -7,10 +9,36 @@ import { FlightService } from '../../services/flight.service';
   styleUrls: ['./flights.component.css'],
 })
 export class FlightsComponent implements OnInit {
-  constructor(private fService: FlightService) {}
+  fromAirport = {};
+  toAirport = {};
+
+  constructor(
+    private fService: FlightService,
+    private dService: DestinationService
+  ) {}
+
+  getFromAirport(): void {
+    this.fService.getAirport(this.dService.getFrom()).subscribe((airports) => {
+      this.fromAirport = airports;
+    });
+  }
+
+  getToAirport(): void {
+    this.fService
+      .getAirport(this.dService.getDestination())
+      .subscribe((airports) => {
+        this.toAirport = airports;
+      });
+  }
+
+  getDepartingFlights() {}
+
+  getReturningFlights() {}
 
   ngOnInit(): void {
-    this.fService.getDestinationAirport();
-    // this.fService.getDestinationAirport();
+    this.getFromAirport();
+    this.getToAirport();
+    this.getDepartingFlights();
+    this.getReturningFlights();
   }
 }
