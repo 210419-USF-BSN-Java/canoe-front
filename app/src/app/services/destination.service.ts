@@ -4,15 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DestinationService {
-  from: string = '';
-  destination: string = '';
+  from = '';
+  destination = '';
 
   constructor() {}
   setFrom(from: string) {
     this.from = from;
   }
 
-  public getFrom() {
+  getFrom() {
     return this.from;
   }
 
@@ -20,7 +20,7 @@ export class DestinationService {
     this.destination = destination;
   }
 
-  public getDestination() {
+  getDestination() {
     return this.destination;
   }
 }

@@ -77,7 +77,7 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
     MatIconModule,
     MatCardModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     MatButtonModule,
@@ -90,5 +90,4 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
   
   bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}

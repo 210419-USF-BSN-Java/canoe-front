@@ -12,10 +12,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size:cover; */
-
-
 }
-
 
 .page-header {
   margin-bottom: 10rem;
@@ -36,6 +33,7 @@ body {
 }
 
 .main-container {
+  padding-top: 3rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }

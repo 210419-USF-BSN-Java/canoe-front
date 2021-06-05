@@ -1,34 +1,31 @@
 import { Injectable } from '@angular/core';
-import { DestinationService } from './destination.service';
 import { HttpClient } from '@angular/common/http';
-import axios from 'axios';
+import { environment } from '../../environments/environment';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { Airport } from '../models/airport';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FlightService {
-  url =
-    'https://03xsaqcsqh.execute-api.us-east-2.amazonaws.com/api-places-airports';
-  fromAirport = '';
-  destinationAirport = '';
-  flights: string[] = [];
+  airport: {} = {};
+  googlePlacesUrl =
+    'https://maps.googleapis.com/maps/api/place/textsearch/json?query=airport';
 
-  constructor(
-    private dService: DestinationService,
-    private httpClient: HttpClient
-  ) {}
+  constructor(private httpClient: HttpClient) {}
 
-  public getFromAirport() {
-    console.log('flight service: getFromAirport');
-    return this.httpClient.post(this.url, { place: this.dService.getFrom() });
+  public getAirport(place: string): Observable<Airport> {
+    console.log('FlightService: getAirports');
+    return this.httpClient
+      .get<Airport>(
+        `${this.googlePlacesUrl} ${place}&radius=150000&key=${environment.STREAM}`
+      )
+      .pipe(
+        map((data) => new Airport().deserialize(data)),
+        catchError(() => throwError('Airport not found'))
+      );
   }
 
-  public async getDestinationAirport() {
-    const airport = await axios.post(this.url, { place: 'paris' });
-
-    console.log(airport);
-    return this.httpClient.post(this.url, {
-      place: this.dService.getDestination(),
-    });
-  }
+  getIcaoCode() {}
 }
