@@ -9,11 +9,10 @@ import { TripService } from '../../services/trip.service';
   styleUrls: ['./destination-form.component.css'],
 })
 export class DestinationFormComponent implements OnInit {
-  destination = '';
-
   @Output() controlView = new EventEmitter<string>();
   @Output() formSubmit = new EventEmitter();
 
+  from: string = '';
   constructor(
     private dService: DestinationService,
     private tService: TripService
@@ -25,9 +24,9 @@ export class DestinationFormComponent implements OnInit {
   }
 
   submitForm() {
+    this.dService.setDestination(this.from);
     this.formSubmit.emit(); // sets from in create trip
     this.controlView.emit(); // controls create trip view
-    this.dService.setDestination(this.destination);
   }
 
   ngOnInit(): void {}

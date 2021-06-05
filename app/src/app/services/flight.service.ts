@@ -1,21 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { Airport } from '../models/airport';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FlightService {
-  url =
+  airport: {} = {};
+  googlePlacesUrl =
     'https://maps.googleapis.com/maps/api/place/textsearch/json?query=airport';
-  airport: any = null;
 
   constructor(private httpClient: HttpClient) {}
 
-  getAirport(place: string) {
-    return this.httpClient.get(
-      `${this.url} ${place}&radius=150000&key=${environment.STREAM}`
-    );
+  public getAirport(place: string): Observable<Airport> {
+    console.log('FlightService: getAirports');
+    return this.httpClient
+      .get<Airport>(
+        `${this.googlePlacesUrl} ${place}&radius=150000&key=${environment.STREAM}`
+      )
+      .pipe(
+        map((data) => new Airport().deserialize(data)),
+        catchError(() => throwError('Airport not found'))
+      );
   }
+
+  getIcaoCode() {}
 }
