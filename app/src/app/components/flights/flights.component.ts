@@ -17,23 +17,31 @@ export class FlightsComponent implements OnInit {
     private dService: DestinationService
   ) {}
 
-  getFromAirport(): void {
-    this.fService.getAirport(this.dService.getFrom()).subscribe((airports) => {
-      this.fromAirport = airports;
-    });
+  // getFromAirport(): void {
+  //   this.fService.getAirport(this.dService.getFrom()).subscribe((airports) => {
+  //     console.log('from airport', airports);
+  //     this.fromAirport = airports;
+  //   });
+  // }
+
+  getFromAirport() {
+    console.log(this.fService.getAirport(this.dService.getFrom()));
   }
 
-  getToAirport(): void {
-    this.fService
-      .getAirport(this.dService.getDestination())
-      .subscribe((airports) => {
-        this.toAirport = airports;
-      });
+  getToAirport() {
+    console.log(this.fService.getAirport(this.dService.getDestination()));
   }
 
-  getDepartingFlights() {
-    console.log(this.fromAirport.results[0].name);
-  }
+  // getToAirport(): void {
+  //   this.fService
+  //     .getAirport(this.dService.getDestination())
+  //     .subscribe((airports) => {
+  //       console.log('to airports ', airports);
+  //       this.toAirport = airports;
+  //     });
+  // }
+
+  getDepartingFlights() {}
 
   getReturningFlights() {
     // use airport to request flights with date
@@ -43,7 +51,7 @@ export class FlightsComponent implements OnInit {
   ngOnInit(): void {
     this.getFromAirport();
     this.getToAirport();
-    this.getDepartingFlights();
+    // this.getDepartingFlights();
     this.getReturningFlights();
   }
 }
