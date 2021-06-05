@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 export class DestinationService {
   from = '';
   destination = '';
-  departDate = '';
-  returnDate = '';
 
   constructor() {}
   setFrom(from: string) {
@@ -24,21 +22,5 @@ export class DestinationService {
 
   getDestination() {
     return this.destination;
-  }
-
-  getDepartDate() {
-    return this.departDate;
-  }
-
-  setDepartDate(date: string) {
-    this.departDate = date;
-  }
-
-  getReturnDate() {
-    return this.returnDate;
-  }
-
-  setReturnDate(date: string) {
-    this.returnDate = date;
   }
 }
