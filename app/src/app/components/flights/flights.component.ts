@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FlightService } from '../../services/flight.service';
 import { DestinationService } from '../../services/destination.service';
-import { Observable } from 'rxjs';
-
+import { Airport } from '../../models/airport';
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.css'],
 })
 export class FlightsComponent implements OnInit {
-  fromAirport: {} = {};
-  toAirport: {} = {};
+  fromAirport: string = '';
+  toAirport: string = '';
 
   constructor(
     private fService: FlightService,
@@ -18,27 +17,22 @@ export class FlightsComponent implements OnInit {
   ) {}
 
   getFromAirport(): void {
-    this.fService.getAirport(this.dService.getFrom()).subscribe((airports) => {
-      console.log('to airports ', airports);
-      this.toAirport = airports;
-    });
+    console.log('fservice: get from airport ');
+    this.fService
+      .getAirport(this.dService.getFrom())
+      .subscribe((airport) => (this.fromAirport = airport.getName()));
   }
 
-  // getFromAirport() {
-  //   console.log(this.fService.getAirport(this.dService.getFrom()));
-  // }
-
-  // getToAirport() {
-  //   console.log(this.fService.getAirport(this.dService.getDestination()));
-  // }
-
-  getToAirport(): void {
+  getToAirport() {
+    console.log('fservice: get to airport ');
     this.fService
       .getAirport(this.dService.getDestination())
-      .subscribe((airports) => {
-        console.log('to airports ', airports);
-        this.toAirport = airports;
-      });
+      .subscribe((airport) => (this.toAirport = airport.getName()));
+  }
+
+  getAirports() {
+    this.getToAirport();
+    this.getFromAirport();
   }
 
   getDepartingFlights() {}
@@ -49,8 +43,7 @@ export class FlightsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getFromAirport();
-    this.getToAirport();
+    this.getAirports();
     // this.getDepartingFlights();
     // this.getReturningFlights();
   }

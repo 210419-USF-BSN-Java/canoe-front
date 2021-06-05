@@ -8,18 +8,8 @@ import { DestinationService } from '../services/destination.service';
 })
 export class CreateTripPageComponent implements OnInit {
   labels = ['Flight', 'Lodging', 'Food', 'Explore'];
-
-  constructor(private dService: DestinationService) {}
-
   view = 'from';
 
-  from = '';
-  destination = '';
-
-  formSubmit(): void {
-    this.destination = this.dService.getDestination();
-    this.from = this.dService.getFrom();
-  }
   controlView(view: string): void {
     this.view = view;
   }
