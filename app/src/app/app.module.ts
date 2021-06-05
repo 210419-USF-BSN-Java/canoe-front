@@ -38,8 +38,6 @@ import { FlightsComponent } from './components/flights/flights.component';
 import { FromFormComponent } from './components/from-form/from-form.component';
 import { TripCardComponent } from './components/trip-card/trip-card.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +74,7 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
     MatIconModule,
     MatCardModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     MatButtonModule,
@@ -88,4 +86,4 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

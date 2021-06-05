@@ -31,9 +31,13 @@ export class FlightsComponent implements OnInit {
       });
   }
 
-  getDepartingFlights() {}
+  getDepartingFlights() {
+    // use airport to request flights with date
+  }
 
-  getReturningFlights() {}
+  getReturningFlights() {
+    // use airport to request flights with date
+  }
 
   ngOnInit(): void {
     this.getFromAirport();
