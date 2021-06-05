@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./flights.component.css'],
 })
 export class FlightsComponent implements OnInit {
-  fromAirport = {};
-  toAirport = {};
+  fromAirport: any = { results: [] };
+  toAirport: any = { results: [] };
 
   constructor(
     private fService: FlightService,
@@ -32,11 +32,12 @@ export class FlightsComponent implements OnInit {
   }
 
   getDepartingFlights() {
-    // use airport to request flights with date
+    console.log(this.fromAirport.results[0].name);
   }
 
   getReturningFlights() {
     // use airport to request flights with date
+    console.log(this.fromAirport.results[0].name);
   }
 
   ngOnInit(): void {
