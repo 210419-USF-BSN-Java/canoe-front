@@ -13,8 +13,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: './lodging-tab.component.html',
   styleUrls: ['./lodging-tab.component.css'],
   providers: [
-    DatePipe,
-  
+    DatePipe, 
   ],
 
 })
@@ -37,8 +36,7 @@ export class LodgingTabComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    this.datepipe.transform(this.checkInDate, 'yyyy/MM/dd');
-    this.datepipe.transform(this.checkOutDate, 'yyyy/MM/dd');
+
   }
 
   onClickSubmit(data: LodgingMap[]) {
@@ -70,10 +68,15 @@ export class LodgingTabComponent implements OnInit {
   submitForm(): void {
     console.log('submit Lodging data');
 
+    console.log("Your date obj " + this.checkInDate);
+    const checkInString = this.datepipe.transform(this.checkInDate, 'yyyy/MM/dd');
+    const checkOutString = this.datepipe.transform(this.checkOutDate, 'yyyy/MM/dd');
+    console.log("Your transformed obj " + checkInString);
+
     this.Serv
       .saveLodging(
-        this.checkInDate,
-        this.checkOutDate,
+        checkInString,
+        checkOutString,
         this.hotelName,
         this.rating,
         this.address

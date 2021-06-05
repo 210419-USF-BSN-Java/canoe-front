@@ -10,13 +10,13 @@
 
         <mat-form-field>
             <input name="checkInDate" [(ngModel)]="checkInDate" matInput [matDatepicker]="start"
-                placeholder="Choose a starting date">
+                placeholder="Check-in date">
             <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
             <mat-datepicker #start></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
             <input name="checkOutDate" [(ngModel)]="checkOutDate" matInput [matDatepicker]="end"
-                placeholder="Choose an end date">
+                placeholder="Check-out date">
             <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
             <mat-datepicker #end></mat-datepicker>
 
