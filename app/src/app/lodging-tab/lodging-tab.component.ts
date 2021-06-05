@@ -1,26 +1,44 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../services/lodging.service';
 import { LodgingMap } from './lodging-interface';
+import { DatePipe } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-lodging-tab',
   templateUrl: './lodging-tab.component.html',
-  styleUrls: ['./lodging-tab.component.css']
+  styleUrls: ['./lodging-tab.component.css'],
+  providers: [
+    DatePipe,
+  
+  ],
+
 })
 
 
 export class LodgingTabComponent implements OnInit {
 
+  selection = new SelectionModel<any>(false, []);
   lodging: string = '';
   res: any;
   lodgingMap: LodgingMap[] = [];
+  checkInDate = new Date;
+  checkOutDate = new Date;
+  hotelName = "";
+  rating = "";
+  address = "";
 
-  constructor(private http: HttpClient) {
+  constructor(public datepipe: DatePipe, private Serv: UserService, private router: Router, private http: HttpClient) {
+
   }
-  ngOnInit(): void {
-    
 
+  ngOnInit(): void { 
+    this.datepipe.transform(this.checkInDate, 'yyyy/MM/dd');
+    this.datepipe.transform(this.checkOutDate, 'yyyy/MM/dd');
   }
 
   onClickSubmit(data: LodgingMap[]) {
@@ -47,5 +65,34 @@ export class LodgingTabComponent implements OnInit {
         };
         console.log(this.lodgingMap);
       })
+  }
+
+  submitForm(): void {
+    console.log('submit Lodging data');
+
+    this.Serv
+      .saveLodging(
+        this.checkInDate,
+        this.checkOutDate,
+        this.hotelName,
+        this.rating,
+        this.address
+      )
+      .subscribe(
+        (data) => {
+          this.router.navigate(['/create-trip']);
+        },
+        (error) => {
+          console.log('Error saving lodging info');
+          console.log(error);
+        }
+      );
+  }
+
+  onSelect(selectedItem: any) {
+
+    this.hotelName = selectedItem.name;
+    this.rating = selectedItem.address;
+    this.address = selectedItem.rating;
   }
 }
