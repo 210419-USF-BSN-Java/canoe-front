@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FlightService } from '../../services/flight.service';
 import { DestinationService } from '../../services/destination.service';
-import { Observable } from 'rxjs';
-
+import { Airport } from '../../models/airport';
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
   styleUrls: ['./flights.component.css'],
 })
 export class FlightsComponent implements OnInit {
-  fromAirport: any = { results: [] };
-  toAirport: any = { results: [] };
+  fromAirport: string = '';
+  toAirport: string = '';
 
   constructor(
     private fService: FlightService,
@@ -18,32 +17,34 @@ export class FlightsComponent implements OnInit {
   ) {}
 
   getFromAirport(): void {
-    this.fService.getAirport(this.dService.getFrom()).subscribe((airports) => {
-      this.fromAirport = airports;
-    });
+    console.log('fservice: get from airport ');
+    this.fService
+      .getAirport(this.dService.getFrom())
+      .subscribe((airport) => (this.fromAirport = airport.getName()));
   }
 
-  getToAirport(): void {
+  getToAirport() {
+    console.log('fservice: get to airport ');
     this.fService
       .getAirport(this.dService.getDestination())
-      .subscribe((airports) => {
-        this.toAirport = airports;
-      });
+      .subscribe((airport) => (this.toAirport = airport.getName()));
   }
 
-  getDepartingFlights() {
-    console.log(this.fromAirport.results[0].name);
+  getAirports() {
+    this.getToAirport();
+    this.getFromAirport();
   }
+
+  getDepartingFlights() {}
 
   getReturningFlights() {
     // use airport to request flights with date
-    console.log(this.fromAirport.results[0].name);
+    console.log(this.fromAirport);
   }
 
   ngOnInit(): void {
-    this.getFromAirport();
-    this.getToAirport();
-    this.getDepartingFlights();
-    this.getReturningFlights();
+    this.getAirports();
+    // this.getDepartingFlights();
+    // this.getReturningFlights();
   }
 }

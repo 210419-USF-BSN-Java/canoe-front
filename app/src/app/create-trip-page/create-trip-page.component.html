@@ -29,13 +29,11 @@
         <div *ngIf="view === 'from'">
           <app-from-form
             (controlView)="controlView('destination')"
-            (formSubmit)="formSubmit()"
           ></app-from-form>
         </div>
         <div *ngIf="view === 'destination'">
           <app-destination-form
             (controlView)="controlView('prompt')"
-            (formSubmit)="formSubmit()"
           ></app-destination-form>
         </div>
         <div *ngIf="view === 'prompt'">
@@ -52,8 +50,8 @@
         <div *ngIf="view === 'Food'">ADD Food</div>
         <div *ngIf="view === 'Explore'">ADD Explore</div>
       </div>
-      <div class="card-container">
-        <app-trip-card *ngIf="from && destination"></app-trip-card>
+      <div *ngIf="view === 'trip-card'" class="card-container">
+        <app-trip-card></app-trip-card>
       </div>
     </div>
   </div>
