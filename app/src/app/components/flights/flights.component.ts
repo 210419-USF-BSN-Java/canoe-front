@@ -9,49 +9,49 @@ import { Observable } from 'rxjs';
   styleUrls: ['./flights.component.css'],
 })
 export class FlightsComponent implements OnInit {
-  fromAirport: any = { results: [] };
-  toAirport: any = { results: [] };
+  fromAirport: {} = {};
+  toAirport: {} = {};
 
   constructor(
     private fService: FlightService,
     private dService: DestinationService
   ) {}
 
-  // getFromAirport(): void {
-  //   this.fService.getAirport(this.dService.getFrom()).subscribe((airports) => {
-  //     console.log('from airport', airports);
-  //     this.fromAirport = airports;
-  //   });
-  // }
-
-  getFromAirport() {
-    console.log(this.fService.getAirport(this.dService.getFrom()));
+  getFromAirport(): void {
+    this.fService.getAirport(this.dService.getFrom()).subscribe((airports) => {
+      console.log('to airports ', airports);
+      this.toAirport = airports;
+    });
   }
 
-  getToAirport() {
-    console.log(this.fService.getAirport(this.dService.getDestination()));
-  }
-
-  // getToAirport(): void {
-  //   this.fService
-  //     .getAirport(this.dService.getDestination())
-  //     .subscribe((airports) => {
-  //       console.log('to airports ', airports);
-  //       this.toAirport = airports;
-  //     });
+  // getFromAirport() {
+  //   console.log(this.fService.getAirport(this.dService.getFrom()));
   // }
+
+  // getToAirport() {
+  //   console.log(this.fService.getAirport(this.dService.getDestination()));
+  // }
+
+  getToAirport(): void {
+    this.fService
+      .getAirport(this.dService.getDestination())
+      .subscribe((airports) => {
+        console.log('to airports ', airports);
+        this.toAirport = airports;
+      });
+  }
 
   getDepartingFlights() {}
 
   getReturningFlights() {
     // use airport to request flights with date
-    console.log(this.fromAirport.results[0].name);
+    console.log(this.fromAirport);
   }
 
   ngOnInit(): void {
     this.getFromAirport();
     this.getToAirport();
     // this.getDepartingFlights();
-    this.getReturningFlights();
+    // this.getReturningFlights();
   }
 }
