@@ -27,5 +27,5 @@ export class FlightService {
       );
   }
 
-  getIcaoCode() {}
+  getIcaoCode(airport: string) {}
 }

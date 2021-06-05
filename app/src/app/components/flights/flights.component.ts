@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FlightService } from '../../services/flight.service';
 import { DestinationService } from '../../services/destination.service';
+import { TripService } from '../../services/trip.service';
 import { Airport } from '../../models/airport';
 @Component({
   selector: 'app-flights',
@@ -10,10 +11,13 @@ import { Airport } from '../../models/airport';
 export class FlightsComponent implements OnInit {
   fromAirport: string = '';
   toAirport: string = '';
+  departDate = new Date();
+  returnDate = new Date();
 
   constructor(
     private fService: FlightService,
-    private dService: DestinationService
+    private dService: DestinationService,
+    private tService: TripService
   ) {}
 
   getFromAirport(): void {
@@ -42,8 +46,14 @@ export class FlightsComponent implements OnInit {
     console.log(this.fromAirport);
   }
 
+  getTripDates() {
+    this.departDate = this.tService.getDepartureDate();
+    this.returnDate = this.tService.getReturnDate();
+  }
+
   ngOnInit(): void {
     this.getAirports();
+    this.getTripDates();
     // this.getDepartingFlights();
     // this.getReturningFlights();
   }
