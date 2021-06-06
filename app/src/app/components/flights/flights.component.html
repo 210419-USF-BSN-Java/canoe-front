@@ -1,10 +1,16 @@
-<div>flights</div>
-<div>
-  <div>Departing</div>
-  <div>display date</div>
-  <div>display flights fromAirport</div>
-
-  <div>Arriving</div>
-  <div>display date</div>
-  <div>display flights fromAirport</div>
+<div class="flex">
+  <div>
+    <div>
+      <div>Depart: {{ fromAirport }}</div>
+      <div>Arrive: {{ toAirport }}</div>
+      <div>{{ departDate }}</div>
+      <button mat-raised-button>Search Flights</button>
+    </div>
+  </div>
+  <div>
+    <div>Depart: {{ toAirport }}</div>
+    <div>Arrive: {{ fromAirport }}</div>
+    <div>{{ returnDate }}</div>
+    <button mat-raised-button>Search Flights</button>
+  </div>
 </div>
