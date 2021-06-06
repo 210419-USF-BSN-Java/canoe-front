@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserRole } from '../models/user-role.model';
-import { UserJSON } from '../models/user-json';
 
 import { User } from '../models/user.model';
 
@@ -12,6 +11,9 @@ import { User } from '../models/user.model';
 })
 export class UserService {
   user: User = new User(true, '', '', '', 0, '', '', new UserRole('', 0));
+
+  userReset = new User(true, '', '', '', 0, '', '', new UserRole('', 0));
+
   constructor(private http: HttpClient) {}
 
   signup(
@@ -28,16 +30,7 @@ export class UserService {
       userLogin,
       userLoginPassword,
     };
-    const user = new User(
-      true,
-      userEmail,
-      userFname,
-      userLname,
-      0,
-      userLogin,
-      userLoginPassword,
-      new UserRole('test', 0)
-    );
+
     console.log('***************');
     console.log('   SIGN UP     ');
     console.log('***************');
@@ -49,7 +42,7 @@ export class UserService {
 
   // implement login
   login(userLogin: string, userLoginPassword: string): Observable<User> {
-    console.log(userLogin, userLogin);
+    console.log(userLogin, userLoginPassword);
     let signUpFormData = {
       userLogin,
       userLoginPassword,
@@ -66,6 +59,10 @@ export class UserService {
           return res as User;
         })
       );
+  }
+
+  logout() {
+    this.user = this.userReset;
   }
 
   saveUser(user: User) {
