@@ -30,6 +30,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+
+
+
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -83,7 +86,8 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
     MatIconModule,
     MatCardModule,
   ],
-  providers: [],
+
+  
   bootstrap: [AppComponent],
 })
 export class AppModule {}
