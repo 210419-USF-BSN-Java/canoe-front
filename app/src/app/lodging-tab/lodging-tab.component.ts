@@ -27,6 +27,8 @@ export class LodgingTabComponent implements OnInit {
   lodgingMap: LodgingMap[] = [];
   checkInDate = new Date;
   checkOutDate = new Date;
+  checkInString: any = '';
+  checkOutString: any = '';
   hotelName = "";
   rating = "";
   address = "";
@@ -69,14 +71,22 @@ export class LodgingTabComponent implements OnInit {
     console.log('submit Lodging data');
 
     console.log("Your date obj " + this.checkInDate);
-    const checkInString = this.datepipe.transform(this.checkInDate, 'yyyy/MM/dd');
-    const checkOutString = this.datepipe.transform(this.checkOutDate, 'yyyy/MM/dd');
-    console.log("Your transformed obj " + checkInString);
+    let checkInStringOrNull = this.datepipe.transform(this.checkInDate, 'yyyy-MM-dd');
+    let checkOutStringOrNull = this.datepipe.transform(this.checkOutDate, 'yyyy-MM-dd');
+    console.log("Your transformed obj " + this.checkInString);
+
+    this.checkInString = checkInStringOrNull;
+    this.checkOutString = checkOutStringOrNull;
+
+    let newDate = new Date(this.checkInString)
+
+    console.log(newDate);
+
 
     this.Serv
       .saveLodging(
-        checkInString,
-        checkOutString,
+        this.checkInString,
+        this.checkOutString,
         this.hotelName,
         this.rating,
         this.address

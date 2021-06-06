@@ -14,8 +14,8 @@ export class UserService {
   }
 
   saveLodging(
-    checkInDate: string | null,
-    checkOutDate: string | null,
+    checkInDate: Date,
+    checkOutDate: Date,
     hotelName: string,
     hotel_address: string,
     hotelRating: string
@@ -35,12 +35,12 @@ export class UserService {
     console.log(lodgingFormData);
 
 
-    return this.http
-      .post('http://ec2-3-141-202-118.us-east-2.compute.amazonaws.com:8085/user/signup', lodgingFormData)
-      .pipe(map((res) => res as string));
     // return this.http
-    //   .post('http://localhost:8085/user/saveLodging', lodgingFormData)
+    //   .post('http://ec2-3-141-202-118.us-east-2.compute.amazonaws.com:8085/user/signup', lodgingFormData)
     //   .pipe(map((res) => res as string));
+    return this.http
+      .post('http://localhost:8085/user/saveLodging', lodgingFormData)
+      .pipe(map((res) => res as string));
   }
 
 }
