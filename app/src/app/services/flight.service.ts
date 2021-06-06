@@ -18,9 +18,7 @@ export class FlightService {
   public getAirport(place: string): Observable<Airport> {
     console.log('FlightService: getAirports');
     return this.httpClient
-      .get<Airport>(
-        `${this.googlePlacesUrl} ${place}&radius=150000&key=${environment.STREAM}`
-      )
+      .get<Airport>(`${this.googlePlacesUrl} ${place}&radius=150000&key=blank`)
       .pipe(
         map((data) => new Airport().deserialize(data)),
         catchError(() => throwError('Airport not found'))
