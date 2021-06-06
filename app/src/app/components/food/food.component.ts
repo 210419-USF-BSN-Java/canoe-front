@@ -31,20 +31,15 @@ export interface PeriodicElement {
   rating: number;
 }
 
-let ELEMENT_DATA: PeriodicElement[] = [
+// let ELEMENT_DATA: PeriodicElement[] = [
 
-];
-const aa:IFood[] = [
+//];
+const ELEMENT_DATA:PeriodicElement[] = [
   {number: 1, name: "asdf", address: "asdf", rating:5},
   {number: 1, name: "asdf", address: "asdf", rating:5},
   {number: 1, name: "asdf", address: "asdf", rating:5},
-
-
 ]
-let employee = {number: 1, name: "asdf", address: "asdf", rating:5}
-aa.push();
-const aasdf:any[] = [];
-aa.concat(aasdf);
+
 
 
 @Component({
@@ -57,12 +52,12 @@ export class FoodComponent implements OnInit {
 
   url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=food+in+los+angelos&key=AIzaSyDgUg6GkaiJXjiZWI0kvKnCfT0mr3I09qU`;
   readonly post_url = 'http://localhost:8085/user/saveLocalFood';
-  res: IFood[] = [];
+  // res: IFood[] = [];
   //displayedColumns: string[] = ['position', 'name', 'address', 'action'];
   displayedColumns: string[] = ['number', 'name', 'address','rating', 'action'];
-  //dataSource = ELEMENT_DATA;
+  dataSource = ELEMENT_DATA;
   //dataSource = this.res;
-  dataSource = aa;
+  //dataSource = aa;
 
  
   constructor(private http: HttpClient, private ref:ChangeDetectorRef){};
@@ -90,24 +85,23 @@ ngOnInit() : void{
       //aa.push(foodData);
       ELEMENT_DATA.push(foodData);
       //this.dataSource.push(foodData);
-      
       //this.dataSource = [...this.dataSource];
      
       //Array.prototype.push(this.res, foodData);
       //this.res = this.res.concat(foodData);
       //this.res.concat(aa);
       
-      this.ref.detectChanges();
+       this.ref.detectChanges();
       //aa.detectChanges();
       
-     
+  
     };
 
    });
     
 
    //console.log(this.res);
-    console.log(aa);
+    // console.log(aa);
     console.log(ELEMENT_DATA);
     console.log(this.dataSource);
 //    this.ref.detectChanges();
@@ -122,21 +116,10 @@ ngOnInit() : void{
     console.log("Name: " + elements.name);
     console.log("Address: " + elements.address);
 
-    let body = {
-      
-      restaurantName: elements.name,
-  
-    }
-
-  
-
     //this.http.post(this.url, body).subscribe
 
 
   }
-
-
-  
 
 }
 
