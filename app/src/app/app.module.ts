@@ -31,6 +31,10 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DestinationFormComponent } from './components/destination-form/destination-form.component';
 import { FlightsComponent } from './components/flights/flights.component';
+import { FoodComponent } from './components/food/food.component';
+import { MatTableModule } from '@angular/material/table' 
+
+
 
 @NgModule({
   declarations: [
@@ -48,6 +52,9 @@ import { FlightsComponent } from './components/flights/flights.component';
     LodgingTabComponent,
     DestinationFormComponent,
     FlightsComponent,
+    FoodComponent,
+ 
+  
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,8 @@ import { FlightsComponent } from './components/flights/flights.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ],
   exports: [
     MatButtonModule,
