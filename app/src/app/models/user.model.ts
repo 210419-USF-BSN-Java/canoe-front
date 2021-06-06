@@ -1,16 +1,31 @@
-export interface User {
-    userFname: string;
-    userLname: string;
-    userEmail: string;
-    userLogin: string;
-    userLoginPassword: string;
+import { UserRole } from './user-role.model';
+export class User {
+  private active: boolean;
+  private userEmail: string;
+  private userFname: string;
+  private userId: number;
+  private userLname: string;
+  private userLogin: string;
+  private userLoginPassword: string;
+  private userRoleId: UserRole;
+
+  constructor(
+    active: boolean,
+    userEmail: string,
+    userFname: string,
+    userLname: string,
+    userId: number,
+    userLogin: string,
+    userLoginPassword: string,
+    userRoleId: UserRole
+  ) {
+    (this.active = active),
+      (this.userEmail = userEmail),
+      (this.userFname = userFname),
+      (this.userId = 0),
+      (this.userLname = userLname),
+      (this.userLogin = userLogin),
+      (this.userLoginPassword = userLoginPassword),
+      (this.userRoleId = new UserRole('test', 0));
+  }
 }
-
-
-// {
-//     "userFname" : "Devraj",
-//     "userLname" : "Acharya",
-//     "userEmail" : "dev.acharya286@gmail.com",
-//     "userLogin" : "dev.acharya",
-//     "userLoginPassword" : "password"
-// }
