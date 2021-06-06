@@ -28,4 +28,8 @@ export class User {
       (this.userLoginPassword = userLoginPassword),
       (this.userRoleId = new UserRole('test', 0));
   }
+
+  getUserId() {
+    return this.userId;
+  }
 }
