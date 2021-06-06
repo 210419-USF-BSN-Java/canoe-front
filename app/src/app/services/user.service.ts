@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { UserRole } from '../models/user-role.model';
+import { UserJSON } from '../models/user-json';
 
 import { User } from '../models/user.model';
 
@@ -9,6 +11,7 @@ import { User } from '../models/user.model';
   providedIn: 'root',
 })
 export class UserService {
+  user: User = new User(true, '', '', '', 0, '', '', new UserRole('', 0));
   constructor(private http: HttpClient) {}
 
   signup(
@@ -25,13 +28,22 @@ export class UserService {
       userLogin,
       userLoginPassword,
     };
-
+    const user = new User(
+      true,
+      userEmail,
+      userFname,
+      userLname,
+      0,
+      userLogin,
+      userLoginPassword,
+      new UserRole('test', 0)
+    );
     console.log('***************');
     console.log('   SIGN UP     ');
     console.log('***************');
 
     return this.http
-      .post('http://ec2-3-141-202-118.us-east-2.compute.amazonaws.com:8085/user/signup', signUpFormData)
+      .post('http://localhost:8085/user/signup', signUpFormData)
       .pipe(map((res) => res as string));
   }
 
@@ -48,7 +60,18 @@ export class UserService {
     console.log('***************');
 
     return this.http
-      .post('http://ec2-3-141-202-118.us-east-2.compute.amazonaws.com:8085/user/login', signUpFormData)
-      .pipe(map((res) => res as User));
+      .post('http://localhost:8085/user/login', signUpFormData)
+      .pipe(
+        map((res) => {
+          return res as User;
+        })
+      );
+  }
+
+  saveUser(user: User) {
+    this.user = user;
+  }
+  getUser() {
+    return this.user;
   }
 }
