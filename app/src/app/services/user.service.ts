@@ -36,7 +36,7 @@ export class UserService {
     console.log('***************');
 
     return this.http
-      .post('http://localhost:8085/user/signup', signUpFormData)
+      .post('http://3.132.232.218:8085/user/signup', signUpFormData)
       .pipe(map((res) => res as string));
   }
 
@@ -53,7 +53,7 @@ export class UserService {
     console.log('***************');
 
     return this.http
-      .post('http://localhost:8085/user/login', signUpFormData)
+      .post('http://3.132.232.218:8085/user/login', signUpFormData)
       .pipe(
         map((res) => {
           return res as User;

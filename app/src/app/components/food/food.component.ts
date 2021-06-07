@@ -109,7 +109,7 @@ ngOnInit() : void{
         rating: elements.rating,
     }
     this.http
-      .post<any>('post_url', body, {
+      .post<any>('http://3.132.232.218:8085/user/saveLocalFood', body, {
         headers: headers
       })
       .subscribe((res) => console.log(res));
