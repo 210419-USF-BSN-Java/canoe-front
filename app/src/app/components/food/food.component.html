@@ -5,10 +5,21 @@
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
-<div>{{checkInDate}}</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<mat-form-field class="mat-search" appearance="standard">
+  <mat-label>Select a city</mat-label>
+  <input matInput placeholder="Newark, New Jersey" type="text" [(ngModel)]="location" name="location">
+
+</mat-form-field>
+<button mat-button color="accent" style="height:50%" (click)="onClickSubmit(ELEMENT_DATA)"
+  type="submit">Search</button>
+
+<div text-align: center>
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="ELEMENT_DATA" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -53,5 +64,5 @@
 </table>
 
 
-  
+</div>
   

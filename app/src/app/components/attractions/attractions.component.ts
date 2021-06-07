@@ -20,15 +20,15 @@ export interface PeriodicElement {
 
 
 @Component({
-  selector: 'app-food',
-  templateUrl: './food.component.html',
-  styleUrls: ['./food.component.css'],
+  selector: 'app-attractions',
+  templateUrl: './attractions.component.html',
+  styleUrls: ['./attractions.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FoodComponent implements OnInit {
+export class AttractionsComponent implements OnInit {
   location: string = '';
   //url = ;
-  readonly post_url = 'http://3.132.232.218:8085/user/saveLocalFood';
+  readonly post_url = 'http://3.132.232.218:8085/user/saveTouristAttraction';
   ELEMENT_DATA:PeriodicElement[] = [];
   displayedColumns: string[] = ['number', 'name', 'address','rating', 'action'];
   dataSource = this.ELEMENT_DATA;
@@ -51,7 +51,7 @@ ngOnInit() : void{
   onClickSubmit(array:PeriodicElement[]){
     console.log("Entered location: " + this.location);
     console.log("starting...");
-  this.http.get<any>(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${this.location}+food&key=AIzaSyDgUg6GkaiJXjiZWI0kvKnCfT0mr3I09qU`)
+  this.http.get<any>(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${this.location}+attractions&key=AIzaSyDgUg6GkaiJXjiZWI0kvKnCfT0mr3I09qU`)
    .subscribe((data) =>{
      
  
@@ -76,6 +76,7 @@ ngOnInit() : void{
        console.log(this.dataSource);
     };
     this.ELEMENT_DATA = [...this.ELEMENT_DATA];
+    this.checkInString = [this.checkInString];
     this.ref.detectChanges();
      this.refresh();
    });
@@ -87,8 +88,10 @@ ngOnInit() : void{
   }
   refresh(){
     this.dataSource = this.dataSource;
+    this.checkInDate = this.checkInDate;
   }
   addFood(elements: PeriodicElement){
+    this.refresh();
     console.log("Date: " + this.checkInString)
     console.log("Position: " + elements.number);
     console.log("Name: " + elements.name);

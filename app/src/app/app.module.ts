@@ -42,8 +42,10 @@ import { FoodComponent } from './components/food/food.component';
 import { DatePipe } from '@angular/common';
 
 
+
 import { FromFormComponent } from './components/from-form/from-form.component';
 import { TripCardComponent } from './components/trip-card/trip-card.component';
+import { AttractionsComponent } from './components/attractions/attractions.component';
 
 
 @NgModule({
@@ -63,8 +65,10 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
     DestinationFormComponent,
     FlightsComponent,
     FoodComponent,
+
     FromFormComponent,
     TripCardComponent,
+    AttractionsComponent,
 
   ],
   imports: [
