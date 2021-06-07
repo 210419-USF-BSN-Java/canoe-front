@@ -20,7 +20,7 @@ export class DestinationFormComponent implements OnInit {
 
   addDate(event: MatDatepickerInputEvent<Date>) {
     console.log(event.value);
-    this.tService.setDepartureDate(event.value ? event.value : new Date());
+    this.tService.setReturnDate(event.value || new Date());
   }
 
   submitForm() {

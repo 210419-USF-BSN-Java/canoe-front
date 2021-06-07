@@ -70,18 +70,11 @@ export class LodgingTabComponent implements OnInit {
   submitForm(): void {
     console.log('submit Lodging data');
 
-    console.log("Your date obj " + this.checkInDate);
     let checkInStringOrNull = this.datepipe.transform(this.checkInDate, 'yyyy-MM-dd');
     let checkOutStringOrNull = this.datepipe.transform(this.checkOutDate, 'yyyy-MM-dd');
-    console.log("Your transformed obj " + this.checkInString);
 
     this.checkInString = checkInStringOrNull;
     this.checkOutString = checkOutStringOrNull;
-
-    let newDate = new Date(this.checkInString)
-
-    console.log(newDate);
-
 
     this.Serv
       .saveLodging(
