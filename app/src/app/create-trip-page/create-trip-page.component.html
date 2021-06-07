@@ -1,4 +1,7 @@
-<h1 class="page-header">Create Trip</h1>
+<mat-toolbar>
+  <h1 class="page-header">Create Trip</h1>
+</mat-toolbar>
+
 
 <div class="main-container">
   <div class="flex">
@@ -24,11 +27,32 @@
     </div>
     <div class="main-content-container">
       <div class="main-content">
-        <div *ngIf="!view.length">ADD DESTINATION</div>
-        <div *ngIf="view === 'Flight'">ADD Flight</div>
-        <div *ngIf="view === 'Lodging'">ADD Lodging</div>
-        <div *ngIf="view === 'Food'">ADD Food</div>
+        <div *ngIf="view === 'from'">
+          <app-from-form
+            (controlView)="controlView('destination')"
+          ></app-from-form>
+        </div>
+        <div *ngIf="view === 'destination'">
+          <app-destination-form
+            (controlView)="controlView('prompt')"
+          ></app-destination-form>
+        </div>
+        <div *ngIf="view === 'prompt'">
+          Begin building your trip by selecting from the four categories to the
+          left ** replace with styled prompt **
+        </div>
+        <div *ngIf="view === 'Flight'"><app-flights></app-flights></div>
+        <div *ngIf="!view.length">
+          <app-destination-form></app-destination-form>
+        </div>
+        <div *ngIf="view === 'Flight'"><app-flights></app-flights></div>
+        <div *ngIf="view === 'Lodging'"><app-lodging-tab></app-lodging-tab></div>
+        <div *ngIf="view === 'Food'">  <app-food></app-food></div>
+
         <div *ngIf="view === 'Explore'">ADD Explore</div>
+      </div>
+      <div *ngIf="view === 'trip-card'" class="card-container">
+        <app-trip-card></app-trip-card>
       </div>
     </div>
   </div>

@@ -11,24 +11,39 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { CreateTripPageComponent } from './create-trip-page/create-trip-page.component';
 import { ViewTripPageComponent } from './view-trip-page/view-trip-page.component';
 import { NavComponent } from './nav/nav.component';
-import { SignupFormComponent } from './signup-form/signup-form.component'
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LodgingTabComponent } from './lodging-tab/lodging-tab.component';
 
-
 // Angular Material component imports
-import {HttpClientModule} from '@angular/common/http'
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { AddButtonComponent } from './components/add-button/add-button.component';
-import { AddDestinationFormComponent } from './components/add-destination-form/add-destination-form.component';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DestinationFormComponent } from './components/destination-form/destination-form.component';
+import { FlightsComponent } from './components/flights/flights.component';
+import { FoodComponent } from './components/food/food.component';
+import { DatePipe } from '@angular/common';
+
+
+import { FromFormComponent } from './components/from-form/from-form.component';
+import { TripCardComponent } from './components/trip-card/trip-card.component';
 
 
 @NgModule({
@@ -43,9 +58,14 @@ import { FooterComponent } from './footer/footer.component';
     SignupFormComponent,
     LoginFormComponent,
     AddButtonComponent,
-    AddDestinationFormComponent,
     FooterComponent,
-    LodgingTabComponent
+    LodgingTabComponent,
+    DestinationFormComponent,
+    FlightsComponent,
+    FoodComponent,
+    FromFormComponent,
+    TripCardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -54,21 +74,31 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
     HttpClientModule,
+    MatTableModule,
+    MatTabsModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+
   ],
   exports: [
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+
+  providers: [ DatePipe],
+  bootstrap: [AppComponent],
+  
 })
-export class AppModule { }
+export class AppModule {}
