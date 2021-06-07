@@ -33,6 +33,9 @@ import { DestinationFormComponent } from './components/destination-form/destinat
 import { FlightsComponent } from './components/flights/flights.component';
 import { FoodComponent } from './components/food/food.component';
 import { MatTableModule } from '@angular/material/table' 
+import { DatePipe } from '@angular/common';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -70,7 +73,9 @@ import { MatTableModule } from '@angular/material/table'
     MatIconModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     MatButtonModule,
@@ -79,7 +84,8 @@ import { MatTableModule } from '@angular/material/table'
     MatIconModule,
     MatCardModule,
   ],
-  providers: [],
+  providers: [ DatePipe],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}

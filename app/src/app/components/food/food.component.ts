@@ -1,28 +1,13 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FoodService } from 'src/app/services/food.service';
 import { IFood } from 'src/app/services/IFood';
 import {Observable} from 'rxjs'
 import { MatTableDataSource } from '@angular/material/table';
-
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   address: string;
-// }
-
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   {position: 1, name: 'Hydrogen', address: "1"},
-//   {position: 2, name: 'Helium', address: "13"},
-//   {position: 3, name: 'Lithium', address: "134"},
-//   {position: 4, name: 'Beryllium', address: "1423"},
-//   {position: 5, name: 'Boron', address: "1234"},
-//   {position: 6, name: 'Carbon', address: "1432"},
-//   {position: 7, name: 'Nitrogen', address: "1234"},
-//   {position: 8, name: 'Oxygen', address: "1342"},
-//   {position: 9, name: 'Fluorine', address: "1432"},
-//   {position: 10, name: 'Neon', address: "1234"},
-// ];
+import { DatePipe } from '@angular/common';
+import {MatInputModule} from '@angular/material/input'
+import {MatCalendarCellClassFunction, MatDatepickerModule} from '@angular/material/datepicker';
+import { FormControl } from '@angular/forms';
 
 export interface PeriodicElement {
   number: number;
@@ -31,16 +16,9 @@ export interface PeriodicElement {
   rating: number;
 }
 
-// let ELEMENT_DATA: PeriodicElement[] = [
-
-//];
 const ELEMENT_DATA:PeriodicElement[] = [
-  {number: 1, name: "asdf", address: "asdf", rating:5},
-  {number: 1, name: "asdf", address: "asdf", rating:5},
-  {number: 1, name: "asdf", address: "asdf", rating:5},
+
 ]
-
-
 
 @Component({
   selector: 'app-food',
@@ -49,23 +27,35 @@ const ELEMENT_DATA:PeriodicElement[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FoodComponent implements OnInit {
+  // dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
+  //   // Only highligh dates inside the month view.
+  //   if (view === 'month') {
+  //     const date = cellDate.getDate();
 
+  //     // Highlight the 1st and 20th day of each month.
+  //     return (date === 1 || date === 20) ? 'example-custom-date-class' : '';
+  //   }
+
+  //   return '';
+  // }
   url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=food+in+los+angelos&key=AIzaSyDgUg6GkaiJXjiZWI0kvKnCfT0mr3I09qU`;
-  readonly post_url = 'http://localhost:8085/user/saveLocalFood';
-  // res: IFood[] = [];
-  //displayedColumns: string[] = ['position', 'name', 'address', 'action'];
+  readonly post_url = 'http://3.132.232.218:8085/user/saveLocalFood';
+
   displayedColumns: string[] = ['number', 'name', 'address','rating', 'action'];
   dataSource = ELEMENT_DATA;
-  //dataSource = this.res;
-  //dataSource = aa;
+  checkInDate = new Date;
+  checkInString: any = '';
+  roomsFilter: any;
 
  
-  constructor(private http: HttpClient, private ref:ChangeDetectorRef){};
+constructor(public datepipe: DatePipe, private http: HttpClient, private ref:ChangeDetectorRef){};
 ngOnInit() : void{
-  
+  // for(let i = 0; i<ELEMENT_DATA.length; i++){
+  //   delete ELEMENT_DATA[i];
+  // }
+
   console.log("starting...");
   this.http.get<any>(this.url)
-    //.subscribe((data) =>console.log("this data:" + data));
    .subscribe((data) =>{
  
     for (let i = 0; i < data.results.length; i++) {
@@ -80,47 +70,57 @@ ngOnInit() : void{
         address: addresses,
         rating: ratings
       }
-      
-      //this.res.push(foodData);
-      //aa.push(foodData);
-      ELEMENT_DATA.push(foodData);
-      //this.dataSource.push(foodData);
-      //this.dataSource = [...this.dataSource];
-     
-      //Array.prototype.push(this.res, foodData);
-      //this.res = this.res.concat(foodData);
-      //this.res.concat(aa);
-      
-       this.ref.detectChanges();
-      //aa.detectChanges();
-      
-  
-    };
 
+      ELEMENT_DATA.push(foodData);
+       this.ref.detectChanges();
+    };
    });
     
-
-   //console.log(this.res);
-    // console.log(aa);
+    console.log(this.checkInString);
+    console.log(this.checkInString);
     console.log(ELEMENT_DATA);
     console.log(this.dataSource);
-//    this.ref.detectChanges();
-//    //console.log(this.res[0].name);
-// }
-
+  
   }
+
+  // submitDate(){
+  //   let checkInStringOrNull = this.datepipe.transform(this.checkInDate, 'yyyy-MM-dd');
+  //   this.checkInString = checkInStringOrNull;
+  // }
+
+
 
 
   addFood(elements: PeriodicElement){
-    //console.log("Position: " + elements.position);
+    console.log("Date: " + this.checkInString)
+    console.log("Position: " + elements.number);
     console.log("Name: " + elements.name);
     console.log("Address: " + elements.address);
+    console.log("Rating: " + elements.rating);
+    let checkInStringOrNull = this.datepipe.transform(this.checkInDate, 'yyyy-MM-dd');
+    this.checkInString = checkInStringOrNull;
+    let newDate = new Date(this.checkInString)
+    const headers = new HttpHeaders().append(
+      'Content-Type',
+      'application/json'
+    );
 
-    //this.http.post(this.url, body).subscribe
+    let body = {
+        bookedDate: this.checkInString,
+        localFoodName: elements.name,
+        address: elements.address,
+        rating: elements.rating,
+    }
+    this.http
+      .post<any>('post_url', body, {
+        headers: headers
+      })
+      .subscribe((res) => console.log(res));
+  }
 
 
   }
 
-}
+
 
 
