@@ -1,2 +1,0 @@
-GET https://maps.googleapis.com/maps/api/place/textsearch/json?query=airport seattle&radius=150000&key=AIzaSyD0-SGNnIPNrvUkSr8i2iD-LLBP-VgYfZM HTTP/1.1
-content-type: application/json
