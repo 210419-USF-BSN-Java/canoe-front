@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import './app.json';
 
 export interface TripView {
   num: number;
@@ -190,46 +189,53 @@ export class ViewTripPageComponent implements OnInit {
   constructor(private http: HttpClient, private uService: UserService) { }
 
   ngOnInit(): void {
-    const user = this.uService.getUser();
-    console.log(user);
-
     this.fillData(this.myTrips);
   }
 
   fillData(data: TripView[]) {
-    const uId = this.user.getUserId();
+    let user = this.uService.getUser();
+    console.log(user);
 
-    // this.http.get<any>(`http://3.132.232.218:8085/user/gettripplan/${uId}`).subscribe(
-    //   (res) => {
+    let uId = user.userId;
+    console.log(uId);
 
-        for (let i = 0; i < this.json.length; i++) {
+    
+    this.http.get<any>(`http://3.132.232.218:8085/user/getUser/2`).subscribe(
+      (res) => {
+        console.log(res);
+      })
+    this.http.get<any>(`http://3.132.232.218:8085/user/gettripplan/${uId}`).subscribe(
+      (res) => {
+
+        for (let i = 0; i < res.length; i++) {
+          console.log(res);
           this.block.push(i + 1);
-          let dest = this.json[i].destination;
-          let aAirp = this.json[i].flight.arrivalAirport;
-          let arrDate = this.json[i].flight.arrivalDate;
-          let depAir = this.json[i].flight.departAirport;
-          let depDate = this.json[i].flight.departDate;
+          let dest = res[i].destination;
+          let aAirp = res[i].flight.arrivalAirport;
+          let arrDate = res[i].flight.arrivalDate;
+          let depAir = res[i].flight.departAirport;
+          let depDate = res[i].flight.departDate;
 
           let foodResDate = [];
           let foodResName = [];
-          for (let j = 0; j < this.json[i].localFood.length; j++) {
-            foodResDate.push(" " + this.json[i].localFood[j].bookedDate);
-            foodResName.push(" " + this.json[i].localFood[j].locaFoodName);
+          for (let j = 0; j < res[i].localFood.length; j++) {
+            foodResDate.push(" " + res[i].localFood[j].bookedDate);
+            foodResName.push(" " + res[i].localFood[j].locaFoodName);
           }
 
           let tourResDate = [];
           let tourResName = [];
-          for (let k = 0; k < this.json[i].localTouristAttraction.length; k++) {
-            tourResDate.push(" " + this.json[i].localTouristAttraction[k].bookedDate);
-            tourResName.push(" " + this.json[i].localTouristAttraction[k].localTouristAttractionPlace);
+          for (let k = 0; k < res[i].localTouristAttraction.length; k++) {
+            tourResDate.push(" " + res[i].localTouristAttraction[k].bookedDate);
+            tourResName.push(" " + res[i].localTouristAttraction[k].localTouristAttractionPlace);
           }
 
-          let lodgeIn = this.json[i].lodging.checkInDate;
-          let lodgeOut = this.json[i].lodging.checkOutDate;
-          let lodgeNM = this.json[i].lodging.hotelName;
-          let lodgeRat = this.json[i].lodging.hotelRating;
-          let lodgeAdd = this.json[i].lodging.hotel_address;
-          let lodgePri = this.json[i].lodging.pricePerNight;
+          let lodgeIn = res[i].lodging.checkInDate;
+          let lodgeOut = res[i].lodging.checkOutDate;
+          let lodgeNM = res[i].lodging.hotelName;
+          let lodgeRat = res[i].lodging.hotelRating;
+          let lodgeAdd = res[i].lodging.hotel_address;
+          let lodgePri = res[i].lodging.pricePerNight;
 
           data.push({
             num: i+1,
@@ -255,7 +261,7 @@ export class ViewTripPageComponent implements OnInit {
 
         }
         this.oneTrip = this.myTrips;
-      // })
+      })
   }
 }
 

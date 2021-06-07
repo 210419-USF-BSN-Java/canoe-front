@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
 mat-toolbar a {
     font-size: medium;
     text-decoration: none;
@@ -8,9 +10,6 @@ mat-toolbar a {
 mat-toolbar a:hover {
     color: rgb(207, 228, 247);
 }
-
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
 body {
     font-family: 'Open Sans', sans-serif;

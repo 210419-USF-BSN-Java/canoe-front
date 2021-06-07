@@ -3,7 +3,7 @@ export class User {
   private active: boolean;
   private userEmail: string;
   private userFname: string;
-  private userId: number;
+  public userId: number;
   private userLname: string;
   private userLogin: string;
   private userLoginPassword: string;
@@ -22,7 +22,7 @@ export class User {
     (this.active = active),
       (this.userEmail = userEmail),
       (this.userFname = userFname),
-      (this.userId = 0),
+      (this.userId = userId),
       (this.userLname = userLname),
       (this.userLogin = userLogin),
       (this.userLoginPassword = userLoginPassword),
