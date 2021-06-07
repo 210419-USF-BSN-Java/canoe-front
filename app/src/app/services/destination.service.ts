@@ -4,14 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DestinationService {
-  destination: string = '';
+  from = '';
+  destination = '';
+
   constructor() {}
+  setFrom(from: string) {
+    this.from = from;
+  }
+
+  getFrom() {
+    return this.from;
+  }
 
   setDestination(destination: string) {
     this.destination = destination;
   }
 
-  public getDestination() {
+  getDestination() {
     return this.destination;
   }
 }

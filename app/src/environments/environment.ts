@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  CANOE_BACK_URL:'http://localhost:8085'
+  CANOE_BACK_URL: 'http://localhost:8085',
+  STREAM: 'AIzaSyD0-SGNnIPNrvUkSr8i2iD-LLBP-VgYfZM',
 };
 
 /*

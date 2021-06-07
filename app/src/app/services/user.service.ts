@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { UserRole } from '../models/user-role.model';
 
 import { User } from '../models/user.model';
 
@@ -9,6 +10,10 @@ import { User } from '../models/user.model';
   providedIn: 'root',
 })
 export class UserService {
+  user: User = new User(true, '', '', '', 0, '', '', new UserRole('', 0));
+
+  userReset = new User(true, '', '', '', 0, '', '', new UserRole('', 0));
+
   constructor(private http: HttpClient) {}
 
   signup(
@@ -37,7 +42,7 @@ export class UserService {
 
   // implement login
   login(userLogin: string, userLoginPassword: string): Observable<User> {
-    console.log(userLogin, userLogin);
+    console.log(userLogin, userLoginPassword);
     let signUpFormData = {
       userLogin,
       userLoginPassword,
@@ -49,6 +54,21 @@ export class UserService {
 
     return this.http
       .post('http://localhost:8085/user/login', signUpFormData)
-      .pipe(map((res) => res as User));
+      .pipe(
+        map((res) => {
+          return res as User;
+        })
+      );
+  }
+
+  logout() {
+    this.user = this.userReset;
+  }
+
+  saveUser(user: User) {
+    this.user = user;
+  }
+  getUser() {
+    return this.user;
   }
 }

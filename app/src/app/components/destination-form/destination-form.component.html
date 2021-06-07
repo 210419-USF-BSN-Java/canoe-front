@@ -1,15 +1,32 @@
 <div class="form-container">
   <form class="form-container">
     <div class="input-container">
-      <mat-form-field>
+      <div class="input-prompt">Where would you like to go?</div>
+      <mat-form-field appearence="fill">
         <mat-label>destination</mat-label>
         <input
           id="float-input"
           name="destination"
           type="text"
           matInput
-          [(ngModel)]="destination"
+          [(ngModel)]="from"
         />
+      </mat-form-field>
+      <div class="input-prompt">When will you return?</div>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="datepicker"
+          (dateInput)="addDate($event)"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="datepicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-toggle> </mat-datepicker-toggle>
+        </mat-datepicker>
       </mat-form-field>
       <button class="form-button" mat-raised-button (click)="submitForm()">
         Submit

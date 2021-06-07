@@ -1,8 +1,10 @@
 <nav>
   <mat-toolbar>
-    <span style="margin-right: 20px; font-weight: 100;">Canoe</span>
+    <span style="margin-right: 20px; font-weight: 100">Canoe</span>
     <a routerLink="/admin">Admin</a>
     <a routerLink="/signup">Sign-up</a>
-    <a routerLink="/login">Login</a>  
+    <a routerLink="/login">Login</a>
+    <a routerLink="/login" (click)="logout()">Logout</a>
+    <a routerLink="/view-trip">Trips</a>
   </mat-toolbar>
 </nav>
