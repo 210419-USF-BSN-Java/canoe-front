@@ -20,12 +20,16 @@ export class DestinationService {
   }
 
   setDestination(destination: string): Observable<string> {
-    this.destination = destination;
-    console.log("posting" + this.destination);
+    let post = {
+      destination
+    }
+    console.log("saving " + this.destination + post);
 
       return this.http
-        .post('http://3.132.232.218:8085/user/saveDestination', this.destination)
+        .post('http://3.132.232.218:8085/user/saveDestination', post)
         .pipe(map((res) => res as string));    
+        this.destination = destination;
+
   }
 
   getDestination() {

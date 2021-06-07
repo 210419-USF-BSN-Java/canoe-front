@@ -38,9 +38,6 @@ export class UserService {
     return this.http
       .post('http://3.132.232.218:8085/user/saveLodging', lodgingFormData)
       .pipe(map((res) => res as string));
-    // return this.http
-    //   .post('http://localhost:8085/user/saveLodging', lodgingFormData)
-    //   .pipe(map((res) => res as string));
   }
 
 }
