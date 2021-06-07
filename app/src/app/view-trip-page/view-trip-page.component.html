@@ -2,28 +2,81 @@
     <h1 class="page-header">My Trips</h1>
     <a routerLink="/create-trip">Add New Trip</a>
 </mat-toolbar>
-
+<ul *ngFor="let x of myTrips">
+  <li>
+    {{x.destination}}
+  </li>
+</ul>
 <mat-tab-group>
     <mat-tab *ngFor="let x of block" label="Trip #{{x}}">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-            <ng-container matColumnDef="demo-position">
-              <th mat-header-cell *matHeaderCellDef> No. </th>
-              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <table mat-table [dataSource]="myTrips" class="mat-elevation-z8 demo-table">
+            <ng-container matColumnDef="destination">
+              <th mat-header-cell *matHeaderCellDef> Destination </th>
+              <td mat-cell *matCellDef="let x"> {{x.destination}} </td>
             </ng-container>
           
-            <ng-container matColumnDef="demo-name">
-              <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <ng-container matColumnDef="arrivalAirport">
+              <th mat-header-cell *matHeaderCellDef> Arrival Airpot </th>
+              <td mat-cell *matCellDef="let x">{{x.arrivalAirport}}</td>
             </ng-container>
           
-            <ng-container matColumnDef="demo-weight">
-              <th mat-header-cell *matHeaderCellDef> Weight </th>
-              <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            <ng-container matColumnDef="arrivalDate">
+              <th mat-header-cell *matHeaderCellDef> Arrival Date </th>
+              <td mat-cell *matCellDef="let x">{{x.arrivalDate}}</td>
             </ng-container>
           
-            <ng-container matColumnDef="demo-symbol">
-              <th mat-header-cell *matHeaderCellDef> Symbol </th>
-              <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            <ng-container matColumnDef="departAirport">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.departAirport}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="departDate">
+              <th mat-header-cell *matHeaderCellDef> Departing Date </th>
+              <td mat-cell *matCellDef="let x">{{x.departDate}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="foodReserveDate">
+              <th mat-header-cell *matHeaderCellDef> Food reservation date </th>
+              <td mat-cell *matCellDef="let x">{{x.foodReserveDate}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="foodReservationName">
+              <th mat-header-cell *matHeaderCellDef> Food reservation name </th>
+              <td mat-cell *matCellDef="let x">{{x.foodReservationName}}</td>
+            </ng-container>
+
+            
+            <ng-container matColumnDef="tourReserveDate">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.foodReserveDate}}</td>
+            </ng-container>
+            <ng-container matColumnDef="tourReserveName">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.foodReservationName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="checkinInDate">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.checkinInDate}}</td>
+            </ng-container>
+            <ng-container matColumnDef="checkOutDate">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.checkOutDate}}</td>
+            </ng-container>
+            <ng-container matColumnDef="hotelName">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.hotelName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="hotelRating">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.hotelRating}}</td>
+            </ng-container>
+            <ng-container matColumnDef="hotel_address">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.hotel_address}}</td>
+            </ng-container>
+            <ng-container matColumnDef="pricePerNight">
+              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
+              <td mat-cell *matCellDef="let x">{{x.pricePerNight}}</td>
             </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

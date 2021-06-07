@@ -1,26 +1,28 @@
+import { DataSource } from '@angular/cdk/collections';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import './app.json';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+export interface TripView {
+  destination: string;
+  arrivalAirport: string;
+  arrivalDate: string;
+  departAirport: string;
+  departDate: string;
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+  foodReserveDate: string;
+  foodReservationName: string;
+  tourReserveDate: string;
+  tourReserveName: string;
+
+  checkInDate: string;
+  checkOutDate: string;
+  hotelName: string;
+  hotelRating: string;
+  hotel_address: string;
+  pricePerNight: number;
+}
 @Component({
   selector: 'app-view-trip-page',
   templateUrl: './view-trip-page.component.html',
@@ -30,8 +32,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class ViewTripPageComponent implements OnInit {
 
-  displayedColumns: string[] = ['demo-position', 'demo-name', 'demo-weight', 'demo-symbol'];
-  dataSource = ELEMENT_DATA;  
+  block: any = [];
+  oneTrip: any[] = [];
+  myTrips: TripView[] = [];
+  displayedColumns: string[] = ['destination', 'arrivalAirport', 'arrivalDate', 'departAirport', 'departDate', 'foodReserveDate', 'foodReservationName', 'tourReserveDate', 'tourReserveName', 'checkinInDate', 'checkOutDate', 'hotelName', 'hotelRating', 'hotel_address', 'pricePerNight'];
   json = [
     {
       "customer": {
@@ -71,6 +75,14 @@ export class ViewTripPageComponent implements OnInit {
           "locaFoodName": "Las Palomas",
           "localFoodId": 6,
           "restaurantName": "Sample Restaurant"
+        },
+        {
+          "bookedDate": "2021-06-19",
+          "customerId": 3,
+          "destinationId": 4,
+          "locaFoodName": "Las Palmas",
+          "localFoodId": 6,
+          "restaurantName": "Sample Cafe"
         }
       ],
       "localTouristAttraction": [
@@ -158,14 +170,13 @@ export class ViewTripPageComponent implements OnInit {
       "lodgingId": 7
     }
   ]
-
-
   constructor(private http: HttpClient) { }
 
-  block: any = [];
   ngOnInit(): void {
-    console.log(this.json);
+    this.fillData(this.myTrips);
+  }
 
+  fillData(data: TripView[]) {
     let uId;
     // let username = get the username from the login/signup service;
 
@@ -176,20 +187,61 @@ export class ViewTripPageComponent implements OnInit {
     // this.http.get<any>(`http://3.132.232.218:8085/user/gettripplan/${uId}`).subscribe(
     //   (res) => {
 
-            for (let i = 1; i <= this.json.length; i++) {  
-              this.block.push(i);
-              // you need another for loop
-              // this loop will get the amount of blocks/cards needed and generate a block [i] amount of times
-              // 
-            }
-    //   })
-  // })
+    for (let i = 0; i < this.json.length; i++) {
+      this.block.push(i + 1);
+      let dest = this.json[i].destination;
+      let aAirp = this.json[i].flight.arrivalAirport;
+      let arrDate = this.json[i].flight.arrivalDate;
+      let depAir = this.json[i].flight.departAirport;
+      let depDate = this.json[i].flight.departDate;
+
+      let foodResDate = '';
+      let foodResName = '';
+      for (let j = 0; j < this.json[i].localFood.length; j++) {
+        foodResDate = this.json[i].localFood[j].bookedDate;
+        foodResName = this.json[i].localFood[j].locaFoodName;
+      }
+
+      let tourResDate = '';
+      let tourResName = '';
+      for (let k = 0; k < this.json[i].localTouristAttraction.length; k++) {
+        tourResDate = this.json[i].localTouristAttraction[k].bookedDate;
+        tourResName = this.json[i].localTouristAttraction[k].localTouristAttractionPlace;
+      }
+
+      let lodgeIn = this.json[i].lodging.checkInDate;
+      let lodgeOut = this.json[i].lodging.checkOutDate;
+      let lodgeNM = this.json[i].lodging.hotelName;
+      let lodgeRat = this.json[i].lodging.hotelRating;
+      let lodgeAdd = this.json[i].lodging.hotel_address;
+      let lodgePri = this.json[i].lodging.pricePerNight;
+
+      data.push({
+        destination: dest,
+        arrivalAirport: aAirp,
+        arrivalDate: arrDate,
+        departAirport: depAir,
+        departDate: depDate,
+
+        foodReserveDate: foodResDate,
+        foodReservationName: foodResName,
+        tourReserveDate: tourResDate,
+        tourReserveName: tourResName,
+
+        checkInDate: lodgeIn,
+        checkOutDate: lodgeOut,
+        hotelName: lodgeNM,
+        hotelRating: lodgeRat,
+        hotel_address: lodgeAdd,
+        pricePerNight: lodgePri,
+
+      })
+    }
+
+    let arrayDestination:any[] = [];
+
+    this.oneTrip = this.myTrips;
+    console.log(this.myTrips)
+    console.log(this.oneTrip)
   }
-
-
-  // make fat rectangles for each destination ID (each trip) 
-  // display flight data: depart_date, arrival_date, airline_name
-  // run get request on
-
-
 }
