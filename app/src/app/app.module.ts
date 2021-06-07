@@ -26,6 +26,8 @@ import { AddButtonComponent } from './components/add-button/add-button.component
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -77,6 +79,7 @@ import { TripCardComponent } from './components/trip-card/trip-card.component';
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
+    MatTabsModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
