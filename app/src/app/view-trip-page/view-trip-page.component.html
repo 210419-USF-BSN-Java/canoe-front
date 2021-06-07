@@ -1,89 +1,69 @@
 <mat-toolbar>
-    <h1 class="page-header">My Trips</h1>
-    <a routerLink="/create-trip">Add New Trip</a>
+  <h1 class="page-header">My Trips</h1>
+  <a routerLink="/create-trip">Add New Trip</a>
 </mat-toolbar>
-<ul *ngFor="let x of myTrips">
-  <li>
-    {{x.destination}}
-  </li>
-</ul>
-<mat-tab-group>
-    <mat-tab *ngFor="let x of block" label="Trip #{{x}}">
-        <table mat-table [dataSource]="myTrips" class="mat-elevation-z8 demo-table">
-            <ng-container matColumnDef="destination">
-              <th mat-header-cell *matHeaderCellDef> Destination </th>
-              <td mat-cell *matCellDef="let x"> {{x.destination}} </td>
-            </ng-container>
-          
-            <ng-container matColumnDef="arrivalAirport">
-              <th mat-header-cell *matHeaderCellDef> Arrival Airpot </th>
-              <td mat-cell *matCellDef="let x">{{x.arrivalAirport}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="arrivalDate">
-              <th mat-header-cell *matHeaderCellDef> Arrival Date </th>
-              <td mat-cell *matCellDef="let x">{{x.arrivalDate}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="departAirport">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.departAirport}}</td>
-            </ng-container>
+<mat-tab-group >
+  <mat-tab *ngFor="let x of myTrips" label="Trip #{{x.num}}">
 
-            <ng-container matColumnDef="departDate">
-              <th mat-header-cell *matHeaderCellDef> Departing Date </th>
-              <td mat-cell *matCellDef="let x">{{x.departDate}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="foodReserveDate">
-              <th mat-header-cell *matHeaderCellDef> Food reservation date </th>
-              <td mat-cell *matCellDef="let x">{{x.foodReserveDate}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="foodReservationName">
-              <th mat-header-cell *matHeaderCellDef> Food reservation name </th>
-              <td mat-cell *matCellDef="let x">{{x.foodReservationName}}</td>
-            </ng-container>
-
-            
-            <ng-container matColumnDef="tourReserveDate">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.foodReserveDate}}</td>
-            </ng-container>
-            <ng-container matColumnDef="tourReserveName">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.foodReservationName}}</td>
-            </ng-container>
-            <ng-container matColumnDef="checkinInDate">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.checkinInDate}}</td>
-            </ng-container>
-            <ng-container matColumnDef="checkOutDate">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.checkOutDate}}</td>
-            </ng-container>
-            <ng-container matColumnDef="hotelName">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.hotelName}}</td>
-            </ng-container>
-            <ng-container matColumnDef="hotelRating">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.hotelRating}}</td>
-            </ng-container>
-            <ng-container matColumnDef="hotel_address">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.hotel_address}}</td>
-            </ng-container>
-            <ng-container matColumnDef="pricePerNight">
-              <th mat-header-cell *matHeaderCellDef> Departing Airport </th>
-              <td mat-cell *matCellDef="let x">{{x.pricePerNight}}</td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-          
-          
-
-    </mat-tab>
+    <table [style.padding]="'15px'" style="width: 100%;" class=" container">
+      <tbody>
+        <tr>
+          <td class="one">Destination</td>
+          <td>{{x.destination}}</td>
+        </tr>
+        <tr>
+          <td class="one">Destination Airport</td>
+          <td>{{x.arrivalAirport}}</td>
+        </tr>
+        <tr>
+          <td class="one">Arrival Date</td>
+          <td>{{x.arrivalDate}}</td>
+        </tr>
+        <tr>
+          <td class="one">Departure Airport</td>
+          <td>{{x.departAirport}}</td>
+        </tr>
+        <tr>
+          <td class="one">Date of Departure</td>
+          <td>{{x.departDate}}</td>
+        </tr>
+        <tr>
+          <td class="one">Restaurants to visit</td>
+          <td>{{x.foodReservationName}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>{{x.foodReserveDate}}</td>
+        </tr>
+        <tr>
+          <td class="one">Places of Interest</td>
+          <td>{{x.tourReserveName}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>{{x.tourReserveDate}}</td>
+        </tr>
+        <tr>
+          <td class="one">Lodging Name</td>
+          <td>{{x.hotelName}}</td>
+        </tr>
+        <tr>
+          <td class="one">Lodging Check-in</td>
+          <td>{{x.checkingInDate}}</td>
+        </tr>
+        <tr>
+          <td class="one">Lodging Check-out</td>
+          <td>{{x.checkOutDate}}</td>
+        </tr>
+        <tr>
+          <td class="one">Lodging Address</td>
+          <td>{{x.hotel_address}}</td>
+        </tr>
+        <tr>
+          <td class="one">Price per night</td>
+          <td>${{x.pricePerNight}}.00 USD</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-tab>
 </mat-tab-group>
