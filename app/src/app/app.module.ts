@@ -36,6 +36,8 @@ import { MatTableModule } from '@angular/material/table'
 import { DatePipe } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AttractionsComponent } from './components/attractions/attractions.component';
+
 
 
 
@@ -56,6 +58,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     DestinationFormComponent,
     FlightsComponent,
     FoodComponent,
+    AttractionsComponent,
+    
  
   
   ],
