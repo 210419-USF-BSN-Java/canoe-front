@@ -8,3 +8,11 @@ mat-toolbar a {
 mat-toolbar a:hover {
     color: rgb(207, 228, 247);
 }
+
+table {
+    width: 100%;
+  }
+  
+  tr.mat-footer-row {
+    font-weight: bold;
+  }

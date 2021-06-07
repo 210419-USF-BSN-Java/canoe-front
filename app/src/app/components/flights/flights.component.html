@@ -1,1 +1,16 @@
-<p>flights works!</p>
+<div class="flex">
+  <div>
+    <div>
+      <div>Depart: {{ fromAirport }}</div>
+      <div>Arrive: {{ toAirport }}</div>
+      <div>{{ departDate }}</div>
+      <button mat-raised-button>Search Flights</button>
+    </div>
+  </div>
+  <div>
+    <div>Depart: {{ toAirport }}</div>
+    <div>Arrive: {{ fromAirport }}</div>
+    <div>{{ returnDate }}</div>
+    <button mat-raised-button>Search Flights</button>
+  </div>
+</div>

@@ -25,20 +25,26 @@ import { AddButtonComponent } from './components/add-button/add-button.component
 
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DestinationFormComponent } from './components/destination-form/destination-form.component';
 import { FlightsComponent } from './components/flights/flights.component';
 import { FoodComponent } from './components/food/food.component';
-import { MatTableModule } from '@angular/material/table' 
 import { DatePipe } from '@angular/common';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { AttractionsComponent } from './components/attractions/attractions.component';
 
 
+
+import { FromFormComponent } from './components/from-form/from-form.component';
+import { TripCardComponent } from './components/trip-card/trip-card.component';
 
 
 @NgModule({
@@ -58,10 +64,10 @@ import { AttractionsComponent } from './components/attractions/attractions.compo
     DestinationFormComponent,
     FlightsComponent,
     FoodComponent,
-    AttractionsComponent,
-    
- 
-  
+
+    FromFormComponent,
+    TripCardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -70,16 +76,20 @@ import { AttractionsComponent } from './components/attractions/attractions.compo
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
     HttpClientModule,
+    MatTableModule,
+    MatTabsModule,
     MatMenuModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatTableModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+
   ],
   exports: [
     MatButtonModule,
@@ -88,6 +98,7 @@ import { AttractionsComponent } from './components/attractions/attractions.compo
     MatIconModule,
     MatCardModule,
   ],
+
   providers: [ DatePipe],
   bootstrap: [AppComponent],
   

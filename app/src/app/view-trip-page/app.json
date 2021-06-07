@@ -1,0 +1,66 @@
+{
+    "myobj": [
+        {
+            "customer": {
+                "active": true,
+                "userEmail": "zhou3440@gmail.com",
+                "userFname": "Kevin",
+                "userId": 3,
+                "userLname": "Cho",
+                "userLogin": "kcho",
+                "userLoginPassword": "root",
+                "userRoleId": {
+                    "userRole": "user",
+                    "userRoleId": 1
+                }
+            },
+            "customerId": 6,
+            "destination": "San Francisco",
+            "destinationId": 4,
+            "flight": {
+                "airlineName": "United",
+                "arrivalAirport": "San Francisco International",
+                "arrivalDate": "2021-06-06",
+                "customerId": 3,
+                "departAirport": "San Francisco International",
+                "departDate": "2021-06-21",
+                "destinationId": 4,
+                "flightInfoId": 0,
+                "flightNo": "string",
+                "flightPrice": 122
+            },
+            "flightId": 0,
+            "localFood": [
+                {
+                    "bookedDate": "2021-06-06",
+                    "customerId": 3,
+                    "destinationId": 4,
+                    "locaFoodName": "string",
+                    "localFoodId": 6,
+                    "restaurantName": "Sample Restaurant"
+                }
+            ],
+            "localTouristAttraction": [
+                {
+                    "bookedDate": "2021-06-06",
+                    "customerId": 3,
+                    "destinationId": 4,
+                    "localTouristAttaraction": 3,
+                    "localTouristAttractionPlace": "San Francisco Zoo"
+                }
+            ],
+            "lodging": {
+                "checkInDate": "2021-06-08",
+                "checkOutDate": "2021-06-10",
+                "customerId": 3,
+                "destinationId": 4,
+                "hotelName": "Courtyard by Marriott San Francisco Fisherman's Wharf",
+                "hotelRating": "4.2",
+                "hotel_address": "580 Beach St, San Francisco, CA 94133, United States",
+                "lodgingId": 7,
+                "pricePerNight": 241
+            },
+            "lodgingId": 7
+        }
+    ]
+}
